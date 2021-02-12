@@ -51,3 +51,48 @@
   border-radius: 15px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
+
+.card-dish {
+  overflow: hidden;
+  height: 120px;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  align-content: space-between;
+  // position: relative;
+}
+
+.card-dish img {
+  height: 100%;
+  width: 30%;
+  object-fit: cover;
+}
+
+.card-dish h2 {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-dish p {
+  font-size: 14px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 8px;
+}
+
+.card-dish .card-dish-infos {
+  width: 60%;
+  padding: 16px;
+  // display: flex;
+  // align-items: center;
+  // justify-content: space-between;
+}
+
+.card-dish .card-dish-infos .btn-ghost {
+  // position: absolute;
+  right: 16px;
+}
