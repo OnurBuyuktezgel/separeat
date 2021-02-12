@@ -2,4 +2,18 @@
 <div style='padding: 16px 0 0 0'><%= render 'shared/searchform' %></div>
 <%= render 'shared/categorycard' %>
 <div style='padding: 16px 0 0 0'><h3>Category</h3></div>
-<div style='padding: 16px 0 0 0'><%= render 'shared/dishcard' %>
+<% @dishes.each do |dish| %>
+  <div class="card-dish" style='margin: 16px 0 0 0'>
+    <img src="https://images.unsplash.com/photo-1566935367576-6e0e852215d1?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80" />
+    <div class="card-dish-infos">
+      <h2><%= dish.name %></h2>
+      <h2><%= dish.price %> € </h2>
+      <p><%= dish.description %></p>
+    </div>
+    <%= link_to "+", "#", class: "btn-ghost" %>
+  </div>
+<% end %>
+<div style='padding: 16px 0 0 0'><h3>Add a Dish</h3></div>
+<% if current_user %>
+  <div style='padding: 16px 0 0 0'><%= render 'dishes/form' %>
+<% end %>

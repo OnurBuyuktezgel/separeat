@@ -1,0 +1,9 @@
+<%= simple_form_for [@restaurant, @dish] do |f| %>
+  <%= f.input :name %>
+  <%= f.input :todays_special %>
+  <%= f.input :description %>
+  <%= f.input :category %>
+  <%= f.input :price, label: 'Price (€)' %>
+<!--   <%= f.input :photo, label: 'Add a photo for your dish', as: :file %> -->
+  <%= f.button :submit, 'Create Dish', class: 'btn-flat' %>
+<% end %>
