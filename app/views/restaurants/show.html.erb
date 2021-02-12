@@ -13,7 +13,9 @@
     <%= link_to "+", "#", class: "btn-ghost" %>
   </div>
 <% end %>
-<div style='padding: 16px 0 0 0'><h3>Add a Dish</h3></div>
-<% if current_user %>
-  <div style='padding: 16px 0 0 0'><%= render 'dishes/form' %>
+<% if @restaurant.user == current_user %>
+  <div style='padding: 16px 0 0 0'><h3>Add a Dish</h3></div>
+  <div style='padding: 16px 0 0 0'>
+    <%= render 'dishes/form' %>
+  </div>
 <% end %>
