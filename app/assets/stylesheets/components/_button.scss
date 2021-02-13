@@ -1,14 +1,16 @@
 .btn-ghost {
   color: $almost-black;
-  border: 1px solid $almost-black;
-  padding: 8px 24px;
+  font-size: 24px;
+  border: 3px solid $almost-black;
+  padding: 0 12px;
   border-radius: 15px;
-  font-weight: lighter;
-  opacity: 0.6;
   transition: opacity 0.3s ease;
+  display: inline-block;
+  opacity: 0.6;
 }
 
 .btn-ghost:hover {
+  text-decoration: none;
   color: $almost-black;
   opacity: 1;
 }
@@ -22,5 +24,7 @@
 }
 
 .btn-flat:hover {
-  color: $almost-black;
+  background-color: white;
+  padding: 6px 22px;
+  border: 3px solid $dark-yellow;
 }

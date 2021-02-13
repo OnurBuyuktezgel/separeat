@@ -1,0 +1,9 @@
+<%= simple_form_for(@restaurant) do |f| %>
+  <%= f.input :name %>
+  <%= f.input :address %>
+  <%= f.input :email %>
+  <%= f.input :phone %>
+  <%= f.input :category, collection: Restaurant::CATEGORIES %>
+<!--   <%= f.input :photo, label: 'Add a photo for your restaurant', as: :file %> -->
+  <%= f.button :submit, 'Create Restaurant', class: 'btn-flat' %>
+<% end %>
