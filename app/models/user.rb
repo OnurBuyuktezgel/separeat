@@ -5,4 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :restaurants
+
+  enum status: { pending: 0, confirmed: 1, declined: 2 }
 end
