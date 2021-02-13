@@ -5,6 +5,8 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+require 'json'
+require 'open-uri'
 
 Dish.destroy_all
 puts "All dishes were deleted"
@@ -26,18 +28,32 @@ puts "#{User.count} users were created."
 puts "Creating restaurants..."
 @first_restaurant = Restaurant.new(name: "Onur's Bar", address: "Cologne City Center", email: "onur@separeat.com", phone: "0049 0121 0121", category: "Bar")
 @first_restaurant.user = @first_user
+first_restaurant = URI.open('https://res.cloudinary.com/dinjscr9h/image/upload/v1611082720/iglhfrssj6jcvwzs45og.jpg')
+@first_restaurant.photo.attach(io: first_restaurant, filename: 'first_restaurant image', content_type: 'image/jpg')
 @first_restaurant.save!
+
 @second_restaurant = Restaurant.new(name: "Ilona's Restaurant", address: "Vienna City Center", email: "ilona@separeat.com", phone: "0043 0123 0123", category: "Polish")
 @second_restaurant.user = @second_user
+second_restaurant = URI.open('https://res.cloudinary.com/dinjscr9h/image/upload/v1613224665/restaurant_ncd9th.jpg')
+@second_restaurant.photo.attach(io: second_restaurant, filename: 'second_restaurant image', content_type: 'image/jpg')
 @second_restaurant.save!
+
 @third_restaurant = Restaurant.new(name: "Malin's Café", address: "Duesseldorf City Center", email: "malin@separeat.com", phone: "0049 0123 0123", category: "Café")
 @third_restaurant.user = @third_user
+third_restaurant = URI.open('https://res.cloudinary.com/dinjscr9h/image/upload/v1613224663/cafe_ubn02s.jpg')
+@third_restaurant.photo.attach(io: third_restaurant, filename: 'third_restaurant image', content_type: 'image/jpg')
 @third_restaurant.save!
+
 @fourth_restaurant = Restaurant.new(name: "Andre's Grill", address: "Rio de Janeiro City Center", email: "andre@separeat.com", phone: "0055 2121 2121", category: "Brazilian")
 @fourth_restaurant.user = @fourth_user
+fourth_restaurant = URI.open('https://res.cloudinary.com/dinjscr9h/image/upload/v1613224779/grill_ldo7v1.jpg')
+@fourth_restaurant.photo.attach(io: fourth_restaurant, filename: 'fourth_restaurant image', content_type: 'image/jpg')
 @fourth_restaurant.save!
+
 @fifth_restaurant = Restaurant.new(name: "Toni's Burgers", address: "Berlin City Center", email: "toni@separeat.com", phone: "0049 0125 0125", category: "Burgers")
 @fifth_restaurant.user = @fifth_user
+fifth_restaurant = URI.open('https://res.cloudinary.com/dinjscr9h/image/upload/v1613224930/burger_xlpnxs.jpg')
+@fifth_restaurant.photo.attach(io: fifth_restaurant, filename: 'fifth_restaurant image', content_type: 'image/jpg')
 @fifth_restaurant.save!
 puts "#{Restaurant.count} restaurants were created."
 
