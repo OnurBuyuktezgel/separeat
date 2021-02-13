@@ -2,6 +2,6 @@ class Order < ApplicationRecord
   belongs_to :dish
   belongs_to :visit
 
-enum status: { pending: 0, confirmed: 1, declined: 2 }
+enum status: { submitted: 0, in_progress: 1, delivered: 2 }
 
 end
