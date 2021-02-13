@@ -3,6 +3,7 @@ class DishesController < ApplicationController
   before_action :set_restaurant_id, only: [:index, :show, :new, :create]
 
   def index
+    @dishes = policy_scope(Dish).order(created_at: :desc)
   end
 
   def show
@@ -10,10 +11,12 @@ class DishesController < ApplicationController
 
   def new
     @dish = Dish.new
+    authorize @dish
   end
 
   def create
     @dish = Dish.new(dish_params)
+    authorize @dish
     @dish.restaurant = @restaurant
     if @dish.save
       redirect_to restaurant_path(@restaurant)
