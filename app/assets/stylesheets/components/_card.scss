@@ -1,0 +1,98 @@
+.card-restaurant {
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border-radius: 0 0 15px 15px;
+}
+
+.card-restaurant > img {
+  height: 200px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.card-restaurant h2 {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 0;
+  color: $almost-black;
+}
+
+.card-restaurant h3 {
+  font-size: 22px;
+  margin: 0;
+  color: $dark-yellow;
+}
+
+.card-restaurant .card-restaurant-infos {
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: relative;
+}
+
+.card-restaurant .card-restaurant-rating {
+  padding: 0 0 16px 16px;
+}
+
+.card-category {
+  background-size: cover;
+  background-position: center;
+  height: 180px;
+  width: 180px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: $dark-yellow;
+  font-size: 24px;
+  font-weight: bold;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  border-radius: 15px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+.card-dish {
+  overflow: hidden;
+  height: 120px;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  align-content: space-between;
+  // position: relative;
+}
+
+.card-dish img {
+  height: 100%;
+  width: 30%;
+  object-fit: cover;
+}
+
+.card-dish h2 {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-dish p {
+  font-size: 14px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 8px;
+}
+
+.card-dish .card-dish-infos {
+  width: 60%;
+  padding: 16px;
+  // display: flex;
+  // align-items: center;
+  // justify-content: space-between;
+}
+
+.card-dish .card-dish-infos .btn-ghost {
+  // position: absolute;
+  right: 16px;
+}
