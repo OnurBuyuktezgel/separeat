@@ -96,3 +96,20 @@
   // position: absolute;
   right: 16px;
 }
+
+.card-avatar {
+  position: relative;
+  margin: auto;
+  width: 50vw;
+  background: white;
+  border-radius: 15px;
+  h4 {
+    font-size: 18px;
+    color: black;
+  };
+  p {
+    font-size: 14px;
+    color: black;
+    font-style: italic;
+  }
+}
