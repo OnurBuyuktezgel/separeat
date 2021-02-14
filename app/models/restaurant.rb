@@ -10,4 +10,13 @@ class Restaurant < ApplicationRecord
   validates :category, inclusion: { in: CATEGORIES, allow_nil: false }
   validates :name, presence: true, uniqueness: true
   validates :address, presence: true
+
+  include PgSearch::Model
+  pg_search_scope :search_by_name_and_category,
+                  associated_against: {
+                    dish: [:name, :category]
+                  },
+                  using: {
+                    tsearch: { prefix: true }
+                  }
 end

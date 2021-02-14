@@ -3,6 +3,12 @@ class DishesController < ApplicationController
   before_action :set_restaurant_id, only: [:index, :show, :new, :create]
 
   def index
+    @dishes = @restaurant.dishes
+    if params[:query].present?
+      @dishes = Dish.search_by_name_and_category(params[:query])
+    else
+      @dishes = Dish.all
+    end
   end
 
   def show

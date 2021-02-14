@@ -8,4 +8,11 @@ class Dish < ApplicationRecord
   validates :name, presence: true, uniqueness: true
   validates :category, inclusion: { in: CATEGORIES, allow_nil: false }
   # validates :description, presence: true
+
+  include PgSearch::Model
+  pg_search_scope :search_by_name_and_category,
+                  against: %i[name category],
+                  using: {
+                    tsearch: { prefix: true }
+                  }
 end
