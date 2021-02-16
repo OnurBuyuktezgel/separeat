@@ -11,6 +11,9 @@ require 'json'
 Dish.destroy_all
 puts "All dishes were deleted"
 
+Table.destroy_all
+puts "All tables were deleted"
+
 Restaurant.destroy_all
 puts "All restaurants were deleted"
 
