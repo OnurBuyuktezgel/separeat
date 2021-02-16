@@ -44,6 +44,14 @@ fifth_user = URI.open('https://kitt.lewagon.com/placeholder/users/andrerferrer')
 @fifth_user.photo.attach(io: fifth_user, filename: 'fifth_user image', content_type: 'image/jpg')
 puts "#{User.count} users were created."
 
+@user_six = User.create!(email: "peter@user.com", password: "12345678", first_name: "Peter", last_name: "H", address: "Madrid", phone: "123 456 789", user_type: 'Customer')
+@user_seven = User.create!(email: "karl@user.com", password: "12345678", first_name: "Karl", last_name: "K", address: "Munich", phone: "123 456 789", user_type: 'Customer')
+@user_eight = User.create!(email: "cagri@user.com", password: "12345678", first_name: "Cagri", last_name: "H", address: "Copenhagen", phone: "123 456 789", user_type: 'Customer')
+@user_nine = User.create!(email: "lena@user.com", password: "12345678", first_name: "Lena", last_name: "L", address: "Cologne", phone: "123 456 789", user_type: 'Customer')
+@user_ten = User.create!(email: "karlotta@user.com", password: "12345678", first_name: "Karlotta", last_name: "K", address: "Munich", phone: "123 456 789", user_type: 'Customer')
+@user_eleven = User.create!(email: "yannik@user.com", password: "12345678", first_name: "Yannik", last_name: "G", address: "Munich", phone: "123 456 789", user_type: 'Customer')
+@user_twelve = User.create!(email: "mark@user.com", password: "12345678", first_name: "Mark", last_name: "M", address: "Berlin", phone: "123 456 789", user_type: 'Customer')
+
 # 2. create restaurants
 
 puts "Creating restaurants..."
@@ -281,3 +289,10 @@ twentyfive_dish = URI.open('https://res.cloudinary.com/dinjscr9h/image/upload/v1
 @twentyfive_dish.photo.attach(io: twentyfive_dish, filename: 'twentyfive_dish image', content_type: 'image/jpg')
 @twentyfive_dish.save!
 puts "#{Dish.count} dishes were created."
+
+# 5. create visits
+
+# @visit_one = Visit.new(start_date: "", end_date: "", guests: 3)
+# @visit_one.user = @user_six
+# @visit_one.table = @table_one
+# @visit.one.save!
