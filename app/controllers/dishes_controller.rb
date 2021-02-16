@@ -1,5 +1,5 @@
 class DishesController < ApplicationController
-  before_action :set_dish, only: [:show]
+  # before_action :set_dish, only: [:show]
   before_action :set_restaurant_id, only: [:index, :show, :new, :create]
 
   def index
@@ -12,6 +12,7 @@ class DishesController < ApplicationController
   end
 
   def show
+    # @dishes = @restaurant.dishes
   end
 
   def new
