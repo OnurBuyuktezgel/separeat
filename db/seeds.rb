@@ -20,6 +20,8 @@ puts "All restaurants were deleted"
 User.destroy_all
 puts "All users were deleted"
 
+# 1. create users
+
 puts "Creating users..."
 @first_user = User.create!(email: "onur@separeat.com", password: "12345678", first_name: "Onur", last_name: "B", address: "Cologne", phone: "0049 0121 0121", user_type: 'Restaurant Owner')
 first_user = URI.open('https://kitt.lewagon.com/placeholder/users/onurbuyuktezgel')
@@ -41,6 +43,8 @@ fourth_user = URI.open('https://kitt.lewagon.com/placeholder/users/tonipanacek')
 fifth_user = URI.open('https://kitt.lewagon.com/placeholder/users/andrerferrer')
 @fifth_user.photo.attach(io: fifth_user, filename: 'fifth_user image', content_type: 'image/jpg')
 puts "#{User.count} users were created."
+
+# 2. create restaurants
 
 puts "Creating restaurants..."
 @first_restaurant = Restaurant.new(name: "Onur's Bar", address: "Cologne City Center", email: "onur@separeat.com", phone: "0049 0121 0121", category: "Bar")
@@ -73,6 +77,58 @@ fifth_restaurant = URI.open('https://res.cloudinary.com/dinjscr9h/image/upload/v
 @fifth_restaurant.photo.attach(io: fifth_restaurant, filename: 'fifth_restaurant image', content_type: 'image/jpg')
 @fifth_restaurant.save!
 puts "#{Restaurant.count} restaurants were created."
+
+# 3. create restaurants
+
+puts "Creating tables..."
+@table_one = Table.new(name: "Table 1", capacity: 4)
+@table_one.restaurant = @first_restaurant
+@table_one.save
+@table_two = Table.new(name: "Table 2", capacity: 2)
+@table_two.restaurant = @first_restaurant
+@table_two.save
+@table_three = Table.new(name: "Table 3", capacity: 6)
+@table_three.restaurant = @first_restaurant
+@table_three.save
+@table_four = Table.new(name: "Table 1", capacity: 4)
+@table_four.restaurant = @second_restaurant
+@table_four.save
+@table_five = Table.new(name: "Table 2", capacity: 2)
+@table_five.restaurant = @second_restaurant
+@table_five.save
+@table_six = Table.new(name: "Table 3", capacity: 6)
+@table_six.restaurant = @second_restaurant
+@table_six.save
+@table_seven = Table.new(name: "Table 1", capacity: 4)
+@table_seven.restaurant = @third_restaurant
+@table_seven.save
+@table_eight = Table.new(name: "Table 2", capacity: 2)
+@table_eight.restaurant = @third_restaurant
+@table_eight.save
+@table_nine = Table.new(name: "Table 3", capacity: 6)
+@table_nine.restaurant = @third_restaurant
+@table_nine.save
+@table_ten = Table.new(name: "Table 1", capacity: 4)
+@table_ten.restaurant = @fourth_restaurant
+@table_ten.save
+@table_eleven = Table.new(name: "Table 2", capacity: 2)
+@table_eleven.restaurant = @fourth_restaurant
+@table_eleven.save
+@table_twelve = Table.new(name: "Table 3", capacity: 6)
+@table_twelve.restaurant = @fourth_restaurant
+@table_twelve.save
+@table_thirteen = Table.new(name: "Table 1", capacity: 4)
+@table_thirteen.restaurant = @fifth_restaurant
+@table_thirteen.save
+@table_fourteen = Table.new(name: "Table 2", capacity: 2)
+@table_fourteen.restaurant = @fifth_restaurant
+@table_fourteen.save
+@table_fifteen = Table.new(name: "Table 3", capacity: 6)
+@table_fifteen.restaurant = @fifth_restaurant
+@table_fifteen.save
+puts "#{Table.count} tables were created."
+
+# 4. create dishes
 
 puts "Creating dishes..."
 @first_dish = Dish.new(name: "Single Malt Whisky", todays_special: true, description: "Impresses with its full, fruity aroma.", category: "Alcoholic Beverages", price: 8)
