@@ -1,12 +1,20 @@
 class DishesController < ApplicationController
-  before_action :set_dish, only: [:show]
+  # before_action :set_dish, only: [:show]
   before_action :set_restaurant_id, only: [:index, :show, :new, :create]
 
   def index
     @dishes = policy_scope(Dish).order(created_at: :desc)
+
+    @dishes = @restaurant.dishes
+    if params[:query].present?
+      @dishes = Dish.search_by_name_and_category(params[:query])
+    else
+      @dishes = Dish.all
+    end
   end
 
   def show
+    # @dishes = @restaurant.dishes
   end
 
   def new

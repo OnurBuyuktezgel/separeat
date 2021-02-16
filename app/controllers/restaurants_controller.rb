@@ -10,6 +10,12 @@ class RestaurantsController < ApplicationController
   def show
     @dishes = @restaurant.dishes
     @dish = Dish.new
+
+    if params[:query].present?
+      @dishes = @dishes.search_by_name_and_category(params[:query])
+    else
+      @dishes = @dishes.all
+    end
   end
 
   def new
