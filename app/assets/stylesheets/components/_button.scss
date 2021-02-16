@@ -4,15 +4,15 @@
   border: 3px solid $almost-black;
   padding: 0 12px;
   border-radius: 15px;
-  transition: opacity 0.3s ease;
+  transition: background 0.3s ease;
   display: inline-block;
-  opacity: 0.6;
 }
 
 .btn-ghost:hover {
   text-decoration: none;
   color: $almost-black;
-  opacity: 1;
+  background-color: $almost-black;
+  color: white;
 }
 
 .btn-flat {
@@ -27,4 +27,19 @@
   background-color: white;
   padding: 6px 22px;
   border: 3px solid $dark-yellow;
+}
+
+.btn-navbar-1 {
+  padding: 20px 77px !important;
+  margin-top: 50px !important;
+}
+
+.btn-navbar-2 {
+  padding: 20px 67px !important;
+  margin-top: 20px !important;
+}
+
+.btn-navbar-3 {
+  padding: 20px 87px !important;
+  margin-top: 20px !important;
 }

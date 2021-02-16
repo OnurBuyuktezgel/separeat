@@ -26,3 +26,11 @@
 .navbar-light .navbar-nav .nav-link:hover {
   color: $dark-yellow;
 }
+
+.nav-item a:hover {
+  text-style:none;
+}
+
+.dropdown {
+  min-height: 100vh;
+}
