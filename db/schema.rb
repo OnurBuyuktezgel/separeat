@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_13_143338) do
+ActiveRecord::Schema.define(version: 2021_02_16_175904) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,7 +42,7 @@ ActiveRecord::Schema.define(version: 2021_02_13_143338) do
     t.boolean "todays_special"
     t.text "description"
     t.string "category"
-    t.integer "price"
+    t.float "price"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["restaurant_id"], name: "index_dishes_on_restaurant_id"
@@ -54,6 +54,7 @@ ActiveRecord::Schema.define(version: 2021_02_13_143338) do
     t.integer "status"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.float "total"
     t.index ["dish_id"], name: "index_orders_on_dish_id"
     t.index ["visit_id"], name: "index_orders_on_visit_id"
   end
