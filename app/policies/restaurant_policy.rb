@@ -6,7 +6,7 @@ class RestaurantPolicy < ApplicationPolicy
   end
 
   def create?
-    true if @user.user_type == "Restaurant_owner"
+    true if @user.user_type == "Restaurant Owner"
   end
 
   def show?
