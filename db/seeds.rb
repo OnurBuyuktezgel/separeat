@@ -8,14 +8,25 @@
 require 'open-uri'
 require 'json'
 
+Order.destroy_all
+puts "All orders were deleted"
+
+Visit.destroy_all
+puts "All visits were deleted"
+
 Dish.destroy_all
 puts "All dishes were deleted"
+
+Table.destroy_all
+puts "All tables were deleted"
 
 Restaurant.destroy_all
 puts "All restaurants were deleted"
 
 User.destroy_all
 puts "All users were deleted"
+
+# 1. USERS
 
 puts "Creating users..."
 @first_user = User.create!(email: "onur@separeat.com", password: "12345678", first_name: "Onur", last_name: "B", address: "Cologne", phone: "0049 0121 0121", user_type: 'Restaurant Owner')
@@ -37,7 +48,17 @@ fourth_user = URI.open('https://kitt.lewagon.com/placeholder/users/tonipanacek')
 @fifth_user = User.create!(email: "toni@separeat.com", password: "12345678", first_name: "Toni", last_name: "P", address: "Berlin", phone: "0049 0125 0125", user_type: 'Restaurant Owner')
 fifth_user = URI.open('https://kitt.lewagon.com/placeholder/users/andrerferrer')
 @fifth_user.photo.attach(io: fifth_user, filename: 'fifth_user image', content_type: 'image/jpg')
-puts "#{User.count} users were created."
+
+@user_six = User.create!(email: "peter@user.com", password: "12345678", first_name: "Peter", last_name: "H", address: "Madrid", phone: "123 456 789", user_type: 'Customer')
+@user_seven = User.create!(email: "karl@user.com", password: "12345678", first_name: "Karl", last_name: "K", address: "Munich", phone: "123 456 789", user_type: 'Customer')
+@user_eight = User.create!(email: "cagri@user.com", password: "12345678", first_name: "Cagri", last_name: "H", address: "Copenhagen", phone: "123 456 789", user_type: 'Customer')
+@user_nine = User.create!(email: "lena@user.com", password: "12345678", first_name: "Lena", last_name: "L", address: "Cologne", phone: "123 456 789", user_type: 'Customer')
+@user_ten = User.create!(email: "karlotta@user.com", password: "12345678", first_name: "Karlotta", last_name: "K", address: "Munich", phone: "123 456 789", user_type: 'Customer')
+@user_eleven = User.create!(email: "yannik@user.com", password: "12345678", first_name: "Yannik", last_name: "G", address: "Munich", phone: "123 456 789", user_type: 'Customer')
+@user_twelve = User.create!(email: "mark@user.com", password: "12345678", first_name: "Mark", last_name: "M", address: "Berlin", phone: "123 456 789", user_type: 'Customer')
+puts "#{User.count}/12 users were created."
+
+# 2. RESTAURANTS
 
 puts "Creating restaurants..."
 @first_restaurant = Restaurant.new(name: "Onur's Bar", address: "Cologne City Center", email: "onur@separeat.com", phone: "0049 0121 0121", category: "Bar")
@@ -69,7 +90,73 @@ fourth_restaurant = URI.open('https://res.cloudinary.com/dinjscr9h/image/upload/
 fifth_restaurant = URI.open('https://res.cloudinary.com/dinjscr9h/image/upload/v1613224930/burger_xlpnxs.jpg')
 @fifth_restaurant.photo.attach(io: fifth_restaurant, filename: 'fifth_restaurant image', content_type: 'image/jpg')
 @fifth_restaurant.save!
-puts "#{Restaurant.count} restaurants were created."
+puts "#{Restaurant.count}/5 restaurants were created."
+
+# 3. TABLES
+
+puts "Creating tables..."
+@table_one = Table.new(name: "Table 1", capacity: 4)
+@table_one.restaurant = @first_restaurant
+@table_one.save
+
+@table_two = Table.new(name: "Table 2", capacity: 2)
+@table_two.restaurant = @first_restaurant
+@table_two.save
+
+@table_three = Table.new(name: "Table 3", capacity: 6)
+@table_three.restaurant = @first_restaurant
+@table_three.save
+
+@table_four = Table.new(name: "Table 1", capacity: 4)
+@table_four.restaurant = @second_restaurant
+@table_four.save
+
+@table_five = Table.new(name: "Table 2", capacity: 2)
+@table_five.restaurant = @second_restaurant
+@table_five.save
+
+@table_six = Table.new(name: "Table 3", capacity: 6)
+@table_six.restaurant = @second_restaurant
+@table_six.save
+
+@table_seven = Table.new(name: "Table 1", capacity: 4)
+@table_seven.restaurant = @third_restaurant
+@table_seven.save
+
+@table_eight = Table.new(name: "Table 2", capacity: 2)
+@table_eight.restaurant = @third_restaurant
+@table_eight.save
+
+@table_nine = Table.new(name: "Table 3", capacity: 6)
+@table_nine.restaurant = @third_restaurant
+@table_nine.save
+
+@table_ten = Table.new(name: "Table 1", capacity: 4)
+@table_ten.restaurant = @fourth_restaurant
+@table_ten.save
+
+@table_eleven = Table.new(name: "Table 2", capacity: 2)
+@table_eleven.restaurant = @fourth_restaurant
+@table_eleven.save
+
+@table_twelve = Table.new(name: "Table 3", capacity: 6)
+@table_twelve.restaurant = @fourth_restaurant
+@table_twelve.save
+
+@table_thirteen = Table.new(name: "Table 1", capacity: 4)
+@table_thirteen.restaurant = @fifth_restaurant
+@table_thirteen.save
+
+@table_fourteen = Table.new(name: "Table 2", capacity: 2)
+@table_fourteen.restaurant = @fifth_restaurant
+@table_fourteen.save
+
+@table_fifteen = Table.new(name: "Table 3", capacity: 6)
+@table_fifteen.restaurant = @fifth_restaurant
+@table_fifteen.save
+puts "#{Table.count}/15 tables were created."
+
+# 4. DISHES
 
 puts "Creating dishes..."
 @first_dish = Dish.new(name: "Single Malt Whisky", todays_special: true, description: "Impresses with its full, fruity aroma.", category: "Alcoholic Beverages", price: 8)
@@ -221,4 +308,113 @@ twentyfour_dish = URI.open('https://res.cloudinary.com/dinjscr9h/image/upload/v1
 twentyfive_dish = URI.open('https://res.cloudinary.com/dinjscr9h/image/upload/v1613232602/burger_msqv0h.jpg')
 @twentyfive_dish.photo.attach(io: twentyfive_dish, filename: 'twentyfive_dish image', content_type: 'image/jpg')
 @twentyfive_dish.save!
-puts "#{Dish.count} dishes were created."
+puts "#{Dish.count}/25 dishes were created."
+
+# 5. VISITS
+
+puts "Creating visits..."
+@visit_one = Visit.new(start_date: "2021-02-12 18:00:00 CET", end_date: "2021-02-12 21:00:00 CET", guests: 3)
+@visit_one.user = @user_six
+@visit_one.table = @table_one
+@visit_one.save!
+
+@visit_two = Visit.new(start_date: "2021-02-12 18:00:00 CET", end_date: "2021-02-12 21:00:00 CET", guests: 2)
+@visit_two.user = @user_seven
+@visit_two.table = @table_two
+@visit_two.save!
+
+@visit_three = Visit.new(start_date: "2021-02-12 18:00:00 CET", end_date: "2021-02-12 21:00:00 CET", guests: 5)
+@visit_three.user = @user_eight
+@visit_three.table = @table_three
+@visit_three.save!
+
+@visit_four = Visit.new(start_date: "2021-02-12 18:00:00 CET", end_date: "2021-02-12 21:00:00 CET", guests: 3)
+@visit_four.user = @user_nine
+@visit_four.table = @table_four
+@visit_four.save!
+
+@visit_five = Visit.new(start_date: "2021-02-12 18:00:00 CET", end_date: "2021-02-12 21:00:00 CET", guests: 2)
+@visit_five.user = @user_ten
+@visit_five.table = @table_five
+@visit_five.save!
+
+@visit_six = Visit.new(start_date: "2021-02-12 18:00:00 CET", end_date: "2021-02-12 21:00:00 CET", guests: 5)
+@visit_six.user = @user_eleven
+@visit_six.table = @table_six
+@visit_six.save!
+
+@visit_seven = Visit.new(start_date: "2021-02-12 18:00:00 CET", end_date: "2021-02-12 21:00:00 CET", guests: 3)
+@visit_seven.user = @user_twelve
+@visit_seven.table = @table_seven
+@visit_seven.save!
+
+@visit_eight = Visit.new(start_date: "2021-02-12 18:00:00 CET", end_date: "2021-02-12 21:00:00 CET", guests: 2)
+@visit_eight.user = @user_six
+@visit_eight.table = @table_eight
+@visit_eight.save!
+
+@visit_nine = Visit.new(start_date: "2021-02-12 18:00:00 CET", end_date: "2021-02-12 21:00:00 CET", guests: 5)
+@visit_nine.user = @user_seven
+@visit_nine.table = @table_nine
+@visit_nine.save!
+
+@visit_ten = Visit.new(start_date: "2021-02-12 18:00:00 CET", end_date: "2021-02-12 21:00:00 CET", guests: 3)
+@visit_ten.user = @user_eight
+@visit_ten.table = @table_ten
+@visit_ten.save!
+
+@visit_eleven = Visit.new(start_date: "2021-02-12 18:00:00 CET", end_date: "2021-02-12 21:00:00 CET", guests: 2)
+@visit_eleven.user = @user_nine
+@visit_eleven.table = @table_eleven
+@visit_eleven.save!
+
+@visit_twelve = Visit.new(start_date: "2021-02-12 18:00:00 CET", end_date: "2021-02-12 21:00:00 CET", guests: 5)
+@visit_twelve.user = @user_ten
+@visit_twelve.table = @table_twelve
+@visit_twelve.save!
+puts "#{Visit.count}/12 visits were created."
+
+@visit_thirteen = Visit.new(start_date: "2021-02-12 18:00:00 CET", end_date: "2021-02-12 21:00:00 CET", guests: 3)
+@visit_thirteen.user = @user_eleven
+@visit_thirteen.table = @table_thirteen
+@visit_thirteen.save!
+
+@visit_fourteen = Visit.new(start_date: "2021-02-12 18:00:00 CET", end_date: "2021-02-12 21:00:00 CET", guests: 2)
+@visit_fourteen.user = @user_twelve
+@visit_fourteen.table = @table_fourteen
+@visit_fourteen.save!
+
+@visit_fifteen = Visit.new(start_date: "2021-02-12 18:00:00 CET", end_date: "2021-02-12 21:00:00 CET", guests: 5)
+@visit_fifteen.user = @user_six
+@visit_fifteen.table = @table_fifteen
+@visit_fifteen.save!
+puts "#{Visit.count}/12 visits were created."
+
+# 6. ORDERS
+
+puts "Creating orders..."
+@visits_first_restaurant = []
+Restaurant.first.tables.each {|table| @visits_first_restaurant << table.visits}
+@dishes_first_restaurant = Restaurant.first.dishes
+10.times {Order.create!(status: 0, visit: @visits_first_restaurant.flatten.sample, dish: @dishes_first_restaurant.sample)}
+
+@visits_second_restaurant = []
+Restaurant.second.tables.each {|table| @visits_second_restaurant << table.visits}
+@dishes_second_restaurant = Restaurant.second.dishes
+10.times {Order.create!(status: 0, visit: @visits_second_restaurant.flatten.sample, dish: @dishes_second_restaurant.sample)}
+
+@visits_third_restaurant = []
+Restaurant.third.tables.each {|table| @visits_third_restaurant << table.visits}
+@dishes_third_restaurant = Restaurant.third.dishes
+10.times {Order.create!(status: 0, visit: @visits_third_restaurant.flatten.sample, dish: @dishes_third_restaurant.sample)}
+
+@visits_fourth_restaurant = []
+Restaurant.fourth.tables.each {|table| @visits_fourth_restaurant << table.visits}
+@dishes_fourth_restaurant = Restaurant.fourth.dishes
+10.times {Order.create!(status: 0, visit: @visits_fourth_restaurant.flatten.sample, dish: @dishes_fourth_restaurant.sample)}
+
+@visits_fifth_restaurant = []
+Restaurant.fifth.tables.each {|table| @visits_fifth_restaurant << table.visits}
+@dishes_fifth_restaurant = Restaurant.fifth.dishes
+10.times {Order.create!(status: 0, visit: @visits_fifth_restaurant.flatten.sample, dish: @dishes_fifth_restaurant.sample)}
+puts "#{Order.count}/50 orders were created."
