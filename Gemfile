@@ -30,6 +30,8 @@ gem 'bootsnap', '>= 1.4.2', require: false
 
 gem 'devise'
 
+gem 'pundit'
+
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass'
 gem 'simple_form'
@@ -64,9 +66,11 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # Image Upload
 gem 'cloudinary', '~> 1.16.0'
 
+# PG Search
+gem 'pg_search', '~> 2.3.0'
+
 # Better errors gem for development
 group :development do
   gem "better_errors"
   gem "binding_of_caller"
 end
-
