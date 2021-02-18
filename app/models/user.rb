@@ -5,6 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :restaurants
+  has_many :visits
+  has_many :orders, through: :visits
   has_one_attached :photo
 
   USER_TYPES = ['Restaurant Owner', 'Customer']
