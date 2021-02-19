@@ -1,0 +1,31 @@
+.order-header {
+  text-align: center;
+  font-size: 32px;
+  padding: 16px;
+}
+
+.orders-list {
+  background-color: white;
+  border-radius: 15px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  padding: 16px;
+  margin-bottom: 16px;
+  ul {
+    list-style: none;
+    padding-left: 0;
+    li {
+      font-size: 18px;
+    }
+  }
+}
+
+.order-listing {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.align-button {
+  margin-bottom: 24px;
+  text-align: center;
+}
