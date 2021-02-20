@@ -1,6 +1,7 @@
 class VisitsController < ApplicationController
+  before_action :set_visit, only: [:update]
+
   def index
-    @visits = Visit.all
     @visits = policy_scope(Visit).order(created_at: :desc)
   end
 
@@ -26,6 +27,11 @@ class VisitsController < ApplicationController
   end
 
   private
+
+  def set_visit
+    @visit = Visit.find(params[:id])
+    authorize @visit
+  end
 
   def visit_params
     params.require(:visit).permit(:user_id, :start_date, :end_date, :table_id, :guests, :total)
