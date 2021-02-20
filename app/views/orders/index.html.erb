@@ -2,15 +2,16 @@
 
 <div class="orders-list">
   <ul>
-    <div class="order-listing"><li>Salad</li><li>5 €</li></div>
-    <div class="order-listing"><li>Soup</li><li>5 €</li></div>
-    <div class="order-listing"><li>Dessert</li><li>5 €</li></div>
+    <% @orders_hash.each do |array| %>
+      <div class="order-listing"><li> <%= array[1] %> <%= array[0][:name] %> (à <%= array[0][:price] %> €) </li> <li> <%= (array[1])*(array[0][:price]) %> € </li></div>
+      <% @total += (array[1])*(array[0][:price]) %>
+    <% end %>
   </ul>
 </div>
 
 <div class="orders-list">
   <ul>
-    <div class="order-listing"><li>Total</li><li>15 €</li></div>
+    <div class="order-total"><li>Total</li><li><%= @total %> €</li></div>
   </ul>
 </div>
 
