@@ -1,2 +1,22 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="container">
+  <div class="home">
+    <%= image_tag "separeat-logo.png", class: "logo", alt: "logo" %>
+      <h3>
+        <span id="banner-typed-text"></span>
+      </h3>
+      <ul class="navbar-nav mr-auto text-center">
+        <li class="nav-item pt-3">
+          <% @restaurants.each do |restaurant| %>
+            <%= link_to "Scan QR code", restaurant_path(restaurant), class: "btn btn-flat btn-home-1" %>
+          <% end %>
+        </li>
+        <li class="nav-item pt-3">
+          <%= link_to "Enter code manually", "#", class: "btn btn-flat btn-home-2" %>
+        </li>
+        <li class="nav-item pt-3">
+          <%= link_to "Find restaurants", "#", class: "btn btn-flat btn-home-3" %>
+        </li>
+      </ul>
+    </div>
+</div>
+
