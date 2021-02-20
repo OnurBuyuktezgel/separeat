@@ -47,6 +47,6 @@ class OrdersController < ApplicationController
   end
 
   def order_params
-    params.require(:visit).permit(:dish_id, :status)
+    params.require(:order).permit(:dish_id, :status)
   end
 end

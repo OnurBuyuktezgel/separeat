@@ -14,7 +14,7 @@
       <h2><%= dish.price %> € </h2>
       <p><%= dish.description %></p>
     </div>
-    <%= link_to "+", "#", class: "btn-ghost" %>
+    <%= link_to '+', visit_orders_path(visit: @visit, dish: dish), method: :POST ,class: "btn-ghost"%>
   </div>
 <% end %>
 <% if @restaurant.user == current_user %>
@@ -23,3 +23,5 @@
     <%= render 'dishes/form' %>
   </div>
 <% end %>
+
+
