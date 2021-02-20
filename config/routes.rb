@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   resources :restaurants do
-    resources :reviews, only: [:create]
+    resources :reviews, only: [:create, :new, :index]
     resources :dishes, only: [:index, :create, :edit, :update, :destroy]
     resources :tables, only: [:create, :destroy]
   end
