@@ -1,6 +1,6 @@
 class Restaurant < ApplicationRecord
   belongs_to :user
-  has_many :reviews
+  has_many :reviews, dependent: :destroy
   has_many :tables
   has_many :dishes
   has_one_attached :photo
