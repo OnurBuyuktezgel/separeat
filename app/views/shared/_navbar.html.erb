@@ -10,21 +10,25 @@
   <div class="collapse navbar-collapse dropdown mt-5 pt-3" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto text-center">
       <% if user_signed_in? %>
-        <div class="card-avatar mt-5 pt-3 pb-1">
-          <img class="avatar-menu dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://kitt.lewagon.com/placeholder/users/ssaunier" />
-          <li class="nav-item mt-3 pt-5">
-            <h4>Sébastien Saunier</h4>
-            <p>@Restaurant Tim Raue</p>
-          </li>
+        <div class="card-product">
+          <% if current_user.photo.attached? %>
+            <%= cl_image_tag current_user.photo.key, id: "real-image" %>
+          <% else %>
+            <%= image_tag "user-solid.svg", id: "dummy-image" %>
+          <% end %>
+          <div class="card-product-infos">
+            <h2><%= current_user.first_name %> <%= current_user.last_name %></h2>
+            <p>@Eataly</p>
+          </div>
         </div>
-        <li class="nav-item pt-3">
-          <%= link_to "Order details", "#", class: "btn btn-flat btn-navbar-1" %>
+        <li class="nav-item">
+          <%= link_to "Order details", "#", class: "btn btn-flat btn-navbar" %>
         </li>
-        <li class="nav-item pt-3">
-          <%= link_to "Pay & Checkout", "#", class: "btn btn-flat btn-navbar-2" %>
+        <li class="nav-item">
+          <%= link_to "Pay & Checkout", "#", class: "btn btn-flat btn-navbar" %>
         </li>
-        <li class="nav-item pt-3">
-          <%= link_to "Call waiter", "#", class: "btn btn-flat btn-navbar-3" %>
+        <li class="nav-item">
+          <%= link_to "Call waiter", "#", class: "btn btn-flat btn-navbar" %>
         </li>
       <% else %>
         <li class="nav-item">
