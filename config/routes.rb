@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     resources :tables, only: [:create, :destroy]
   end
 
-  resources :visits, only: [:index, :show, :new, :create] do
+  resources :visits, only: [:index, :new, :create, :update] do
     resources :orders, only: [:index, :show, :new, :create, :edit, :update, :destroy]
   end
 end

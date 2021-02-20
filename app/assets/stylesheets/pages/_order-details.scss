@@ -1,0 +1,48 @@
+.order-header {
+  text-align: center;
+  font-size: 32px;
+  padding: 16px;
+}
+
+.orders-list {
+  background-color: white;
+  border-radius: 15px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  padding: 16px 40px 2px 40px;
+  margin-bottom: 16px;
+  ul {
+    list-style: none;
+    padding-left: 0;
+    li {
+      font-size: 18px;
+    }
+  }
+}
+
+.order-listing {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  line-height: 2.2em;
+}
+
+.order-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  font-weight: bold;
+}
+
+.align-button {
+  margin: 32px 0;
+  text-align: center;
+}
+
+.align-button .btn-flat {
+  padding: 8px 100px;
+}
+
+.align-button .btn-flat-secondary {
+  padding: 8px 116px;
+}
+

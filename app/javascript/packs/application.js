@@ -25,17 +25,25 @@ require("channels")
 // External imports
 import "bootstrap";
 
+import { initMapbox } from '../plugins/init_mapbox';
+import { initAutocomplete } from '../plugins/init_autocomplete';
+import { loadDynamicBannerText } from '../components/banner';
+
+
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
+  initMapbox();
+  initAutocomplete();
+  loadDynamicBannerText();
 });
 
-import { Application } from "stimulus"
-import { definitionsFromContext } from "stimulus/webpack-helpers"
+// import { Application } from "stimulus"
+// import { definitionsFromContext } from "stimulus/webpack-helpers"
 
-const application = Application.start()
-const context = require.context("./controllers", true, /\.js$/)
-application.load(definitionsFromContext(context))
+// const application = Application.start()
+// const context = require.context("./controllers", true, /\.js$/)
+// application.load(definitionsFromContext(context))

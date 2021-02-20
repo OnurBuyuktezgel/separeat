@@ -1,0 +1,19 @@
+<h1 class="order-header">Order details</h1>
+
+<div class="orders-list">
+  <ul>
+    <% @orders_hash.each do |array| %>
+      <div class="order-listing"><li> <%= array[1] %> <%= array[0][:name] %> (à <%= array[0][:price] %> €) </li> <li> <%= (array[1])*(array[0][:price]) %> € </li></div>
+      <% @total += (array[1])*(array[0][:price]) %>
+    <% end %>
+  </ul>
+</div>
+
+<div class="orders-list">
+  <ul>
+    <div class="order-total"><li>Total</li><li><%= @total %> €</li></div>
+  </ul>
+</div>
+
+<div class="align-button"> <%= link_to "Place your order", "#", class: "btn-flat" %> </div>
+<div class="align-button"> <%= link_to "Call a waiter", "#", class: "btn-flat-secondary" %> </div>
