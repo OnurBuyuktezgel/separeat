@@ -1,9 +1,12 @@
 class OrdersController < ApplicationController
-  before_action :set_visit, only: [:show, :new, :create, :edit, :update]
+  before_action :set_visit, only: [:index, :show, :new, :create, :edit, :update]
   before_action :set_order, only: [:show]
 
   def index
-    @order = policy_scope(Order).order(created_at: :desc)
+    @orders = policy_scope(Order).order(created_at: :desc)
+    @orders = @visit.orders
+    @orders_hash = @orders.each_with_object(Hash.new(0)) { |order,counts| counts[order.dish] += 1 }
+    @total = 0
   end
 
   def show
