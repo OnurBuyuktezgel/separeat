@@ -5,7 +5,7 @@ class OrdersController < ApplicationController
   def index
     @orders = policy_scope(Order).order(created_at: :desc)
     @orders = @visit.orders
-    @orders_hash = @orders.each_with_object(Hash.new(0)) { |order,counts| counts[order.dish] += 1 }
+    @orders_hash = @orders.each_with_object(Hash.new(0)) { |order, counts| counts[order.dish] += 1 }
     @total = 0
   end
 
@@ -18,11 +18,16 @@ class OrdersController < ApplicationController
   end
 
   def create
-    @order = Order.new(order_params)
+    @order = Order.new
     authorize @order
     @order.visit = @visit
+    # This is the problem to be fixed: How do I get the dish??!
+    # @dish = Dish.find(params[:dish_id])
+    # @order.dish = @dish
+    @order.dish = Dish.first
+
     if @order.save
-      redirect_to visit_orders_path
+      redirect_to visit_orders_path(@visit, @order)
     else
       render 'restaurants/show'
     end
@@ -47,6 +52,6 @@ class OrdersController < ApplicationController
   end
 
   def order_params
-    params.require(:visit).permit(:dish_id, :status)
+    params.require(:order).permit(:status, :dish_id)
   end
 end

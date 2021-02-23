@@ -16,6 +16,7 @@ class RestaurantsController < ApplicationController
   def show
     @dishes = @restaurant.dishes
     @dish = Dish.new
+    @visit = Visit.last
 
     if params[:query].present?
       @dishes = @dishes.search_by_name_and_category(params[:query])
