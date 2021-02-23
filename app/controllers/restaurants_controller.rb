@@ -23,6 +23,8 @@ class RestaurantsController < ApplicationController
     else
       @dishes = @dishes.all
     end
+
+    @average_price = average_price
   end
 
   def new
@@ -50,5 +52,16 @@ class RestaurantsController < ApplicationController
 
   def restaurant_params
     params.require(:restaurant).permit(:name, :address, :email, :phone, :category, :photo)
+  end
+
+  def average_price
+    set_restaurant
+    if @restaurant.dishes.average(:price) <= 7
+      "€"
+    elsif @restaurant.dishes.average(:price) > 7 && @restaurant.dishes.average(:price) <= 15
+      "€€"
+    else
+      "€€€"
+    end
   end
 end
