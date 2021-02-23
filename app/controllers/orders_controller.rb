@@ -21,7 +21,6 @@ class OrdersController < ApplicationController
     @order = Order.new
     authorize @order
     @order.visit = @visit
-    # This is the problem to be fixed: How do I get the dish??!
     # @dish = Dish.find(params[:dish_id])
     # @order.dish = @dish
     @order.dish = Dish.first
