@@ -25,7 +25,7 @@ class RestaurantsController < ApplicationController
     @salads = []
     @dishes.each {|dish| @salads << dish if dish.category == "Salads"}
     @main_dishes = []
-    @dishes.each {|dish| @main_dishes << dish if dish.category == "Meat Dishes"}
+    @dishes.each {|dish| @main_dishes << dish if dish.category == "Main Dishes"}
     @meats = []
     @dishes.each {|dish| @meats << dish if dish.category == "Meat"}
     @fishes = []
