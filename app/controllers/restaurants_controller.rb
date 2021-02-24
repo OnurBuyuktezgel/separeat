@@ -52,6 +52,8 @@ class RestaurantsController < ApplicationController
       @dishes = @dishes.all
     end
 
+    @dish_categories = @dishes.map(&:category).uniq
+    
     @average_price = average_price
   end
 
