@@ -3,7 +3,6 @@ class RestaurantsController < ApplicationController
 
   def index
     @restaurants = policy_scope(Restaurant).order(created_at: :desc)
-
     @markers = @restaurants.geocoded.map do |restaurant|
       {
         lat: restaurant.latitude,
@@ -16,6 +15,36 @@ class RestaurantsController < ApplicationController
   def show
     @dishes = @restaurant.dishes
     @dish = Dish.new
+    @visit = Visit.last
+
+    @starters = []
+    @dishes.each {|dish| @starters << dish if dish.category == "Starters"}
+    @soups = []
+    @dishes.each {|dish| @soups << dish if dish.category == "Soups"}
+    @salads = []
+    @dishes.each {|dish| @salads << dish if dish.category == "Salads"}
+    @main_dishes = []
+    @dishes.each {|dish| @main_dishes << dish if dish.category == "Meat Dishes"}
+    @meats = []
+    @dishes.each {|dish| @meats << dish if dish.category == "Meat"}
+    @fishes = []
+    @dishes.each {|dish| @fishes << dish if dish.category == "Fish"}
+    @pastas = []
+    @dishes.each {|dish| @pastas << dish if dish.category == "Pasta"}
+    @veggies = []
+    @dishes.each {|dish| @veggies << dish if dish.category == "Vegetarian"}
+    @vegans = []
+    @dishes.each {|dish| @vegans << dish if dish.category == "Vegan"}
+    @desserts = []
+    @dishes.each {|dish| @desserts << dish if dish.category == "Desserts"}
+    @beverages = []
+    @dishes.each {|dish| @beverages << dish if dish.category == "Beverages"}
+    @beers = []
+    @dishes.each {|dish| @beers << dish if dish.category == "Beers"}
+    @alc_bevs = []
+    @dishes.each {|dish| @alc_bevs << dish if dish.category == "Alcoholic Beverages"}
+    @hot_bevs = []
+    @dishes.each {|dish| @hot_bevs << dish if dish.category == "Hot Beverages"}
 
     if params[:query].present?
       @dishes = @dishes.search_by_name_and_category(params[:query])
@@ -24,6 +53,8 @@ class RestaurantsController < ApplicationController
     end
 
     @dish_categories = @dishes.map(&:category).uniq
+    
+    @average_price = average_price
   end
 
   def new
@@ -51,5 +82,16 @@ class RestaurantsController < ApplicationController
 
   def restaurant_params
     params.require(:restaurant).permit(:name, :address, :email, :phone, :category, :photo)
+  end
+
+  def average_price
+    set_restaurant
+    if @restaurant.dishes.average(:price) <= 7
+      "€"
+    elsif @restaurant.dishes.average(:price) > 7 && @restaurant.dishes.average(:price) <= 15
+      "€€"
+    else
+      "€€€"
+    end
   end
 end

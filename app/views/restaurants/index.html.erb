@@ -9,10 +9,21 @@
       <% end %>
       <div class="card-restaurant-infos">
         <div><h2><%= link_to restaurant.name, restaurant_path(restaurant) %></h2></div>
-        <div><h2>€€€</h2></div>
+        <div><h2>
+          <% if restaurant.dishes.average(:price) <= 7 %>
+            <%= "€" %>
+          <% elsif restaurant.dishes.average(:price) > 7 && restaurant.dishes.average(:price) <= 15 %>
+            <%= "€€" %>
+          <% else %>
+            <%= "€€€" %>
+          <% end %>
+        </h2></div>
       </div>
+
       <div class="card-restaurant-rating">
+         <%= link_to restaurant_reviews_path(restaurant) do %>
         <h3><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half"></i></h3>
+      <% end %>
       </div>
     </div>
   <% end %>
