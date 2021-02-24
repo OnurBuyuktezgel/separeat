@@ -250,97 +250,97 @@ nineteen_dish.photo.attach(io: URI.open('https://res.cloudinary.com/dinjscr9h/im
 nineteen_dish.save!
 
 twenty_dish = Dish.new(name: "Pudim de leite condensado", todays_special: true, description: "Homemade pudding made from condensed milk.", category: "Desserts", price: 4.5, restaurant: @fourth_restaurant)
-twenty_dish.photo.attach(io: URI.open('https://res.cloudinary.com/dinjscr9h/image/upload/v1613902675/dessert_pzosgr.jpg'), filename: 'desserts image', content_type: 'image/jpg')
+twenty_dish.photo.attach(io: URI.open('https://res.cloudinary.com/dinjscr9h/image/upload/v1614162811/separeat/dessert_2.jpg'), filename: 'desserts image', content_type: 'image/jpg')
 twenty_dish.save!
 
 twentyone_dish = Dish.new(name: "Classic Burger", todays_special: false, description: "Fresh grilled beef, cheddar cheese, cucumber relish, tomatoes, lettuce, onions, sauce.", category: "Main Dishes", price: 8, restaurant: @fifth_restaurant)
-twentyone_dish.photo.attach(io: URI.open('https://res.cloudinary.com/dinjscr9h/image/upload/v1613232602/burger_msqv0h.jpg'), filename: 'burgers image', content_type: 'image/jpg')
+twentyone_dish.photo.attach(io: URI.open('https://res.cloudinary.com/dinjscr9h/image/upload/v1614161319/separeat/burger_1.jpg'), filename: 'burgers image', content_type: 'image/jpg')
 twentyone_dish.save!
 
 twentytwo_dish = Dish.new(name: "Chicken Burger", todays_special: false, description: "Fresh grilled chicken, cheddar cheese, lettuce, tomatoes, onions, sauce.", category: "Main Dishes", price: 10, restaurant: @fifth_restaurant)
-twentytwo_dish.photo.attach(io: URI.open('https://res.cloudinary.com/dinjscr9h/image/upload/v1613232602/burger_msqv0h.jpg'), filename: 'burgers image', content_type: 'image/jpg')
+twentytwo_dish.photo.attach(io: URI.open('https://res.cloudinary.com/dinjscr9h/image/upload/v1614163838/separeat/chicken-burger.jpg'), filename: 'burgers image', content_type: 'image/jpg')
 twentytwo_dish.save!
 
 twentythree_dish = Dish.new(name: "Bacon Burger", todays_special: false, description: "Fresh beef, cheddar cheese, grilled bacon, caramelized onions, lettuce, smokey sauce.", category: "Main Dishes", price: 10, restaurant: @fifth_restaurant)
-twentythree_dish.photo.attach(io: URI.open('https://res.cloudinary.com/dinjscr9h/image/upload/v1613232602/burger_msqv0h.jpg'), filename: 'burgers image', content_type: 'image/jpg')
+twentythree_dish.photo.attach(io: URI.open('https://res.cloudinary.com/dinjscr9h/image/upload/v1614161258/separeat/bacon-burger.jpg'), filename: 'burgers image', content_type: 'image/jpg')
 twentythree_dish.save!
 
 twentyfour_dish = Dish.new(name: "Avocado Burger", todays_special: false, description: "Fresh grilled beef, cheddar cheese, avocado, tomatoes, lettuce, onions, sauce.", category: "Main Dishes", price: 9.5, restaurant: @fifth_restaurant)
-twentyfour_dish.photo.attach(io: URI.open('https://res.cloudinary.com/dinjscr9h/image/upload/v1613232602/burger_msqv0h.jpg'), filename: 'burgers image', content_type: 'image/jpg')
+twentyfour_dish.photo.attach(io: URI.open('https://res.cloudinary.com/dinjscr9h/image/upload/v1614162374/separeat/burger_2.jpg'), filename: 'burgers image', content_type: 'image/jpg')
 twentyfour_dish.save!
 
-twentyfive_dish = Dish.new(name: "Veggie", todays_special: false, description: "Cheddar cheese, mushrooms, grilled eggplant, tomatoes, lettuce, onions, sauce.", category: "Main Dishes", price: 9.5, restaurant: @fifth_restaurant)
-twentyfive_dish.photo.attach(io: URI.open('https://res.cloudinary.com/dinjscr9h/image/upload/v1613232602/burger_msqv0h.jpg'), filename: 'burgers image', content_type: 'image/jpg')
+twentyfive_dish = Dish.new(name: "Veggie Burger", todays_special: false, description: "Cheddar cheese, mushrooms, grilled eggplant, tomatoes, lettuce, onions, sauce.", category: "Main Dishes", price: 9.5, restaurant: @fifth_restaurant)
+twentyfive_dish.photo.attach(io: URI.open('https://res.cloudinary.com/dinjscr9h/image/upload/v1614161205/separeat/veggie-burger.jpg'), filename: 'burgers image', content_type: 'image/jpg')
 twentyfive_dish.save!
 
-twentysix_dish = Dish.new(name: Faker::Food.dish, todays_special: false, description: Faker::Food.description, category: "Starters", price: [5, 5.5, 6, 6.5, 7].sample, restaurant: @fifth_restaurant)
-twentysix_dish.photo.attach(io: URI.open('https://res.cloudinary.com/dinjscr9h/image/upload/v1613902681/starter_uamkpu.jpg'), filename: 'starters image', content_type: 'image/jpg')
+twentysix_dish = Dish.new(name: 'Garden Salad', todays_special: false, description: Faker::Food.description, category: "Starters", price: [5, 5.5, 6, 6.5, 7].sample, restaurant: @fifth_restaurant)
+twentysix_dish.photo.attach(io: URI.open('https://res.cloudinary.com/dinjscr9h/image/upload/v1614165065/separeat/garden-salad.jpg'), filename: 'starters image', content_type: 'image/jpg')
 twentysix_dish.save!
 
-twentyseven_dish = Dish.new(name: Faker::Food.dish, todays_special: false, description: Faker::Food.description, category: "Starters", price: [5, 5.5, 6, 6.5, 7].sample, restaurant: @fifth_restaurant)
-twentyseven_dish.photo.attach(io: URI.open('https://res.cloudinary.com/dinjscr9h/image/upload/v1613902681/starter_uamkpu.jpg'), filename: 'starters image', content_type: 'image/jpg')
+twentyseven_dish = Dish.new(name: 'Ceasar Salad', todays_special: false, description: Faker::Food.description, category: "Starters", price: [5, 5.5, 6, 6.5, 7].sample, restaurant: @fifth_restaurant)
+twentyseven_dish.photo.attach(io: URI.open('https://res.cloudinary.com/dinjscr9h/image/upload/v1614160924/separeat/ceasar-salad.jpg'), filename: 'starters image', content_type: 'image/jpg')
 twentyseven_dish.save!
 
-twentyeight_dish = Dish.new(name: Faker::Food.dish, todays_special: false, description: Faker::Food.description, category: "Starters", price: [5, 5.5, 6, 6.5, 7].sample, restaurant: @fifth_restaurant)
-twentyeight_dish.photo.attach(io: URI.open('https://res.cloudinary.com/dinjscr9h/image/upload/v1613902681/starter_uamkpu.jpg'), filename: 'starters image', content_type: 'image/jpg')
+twentyeight_dish = Dish.new(name: 'Tomato Soup', todays_special: false, description: Faker::Food.description, category: "Starters", price: [5, 5.5, 6, 6.5, 7].sample, restaurant: @fifth_restaurant)
+twentyeight_dish.photo.attach(io: URI.open('https://res.cloudinary.com/dinjscr9h/image/upload/v1614160974/separeat/tomato-soup.jpg'), filename: 'starters image', content_type: 'image/jpg')
 twentyeight_dish.save!
 
-twentynine_dish = Dish.new(name: Faker::Food.dish, todays_special: false, description: Faker::Food.description, category: "Main Dishes", price: [8, 9, 10, 11, 12].sample, restaurant: @fifth_restaurant)
-twentynine_dish.photo.attach(io: URI.open('https://res.cloudinary.com/dinjscr9h/image/upload/v1613903061/main_gognsl.jpg'), filename: 'main dishes image', content_type: 'image/jpg')
+twentynine_dish = Dish.new(name: 'Toni\'s Homemade Pizza', todays_special: false, description: Faker::Food.description, category: "Main Dishes", price: [8, 9, 10, 11, 12].sample, restaurant: @fifth_restaurant)
+twentynine_dish.photo.attach(io: URI.open('https://res.cloudinary.com/dinjscr9h/image/upload/v1614161333/separeat/pizza.jpg'), filename: 'main dishes image', content_type: 'image/jpg')
 twentynine_dish.save!
 
-thirty_dish = Dish.new(name: Faker::Food.dish, todays_special: false, description: Faker::Food.description, category: "Main Dishes", price: [8, 9, 10, 11, 12].sample, restaurant: @fifth_restaurant)
-thirty_dish.photo.attach(io: URI.open('https://res.cloudinary.com/dinjscr9h/image/upload/v1613903061/main_gognsl.jpg'), filename: 'main dishes image', content_type: 'image/jpg')
+thirty_dish = Dish.new(name: 'Toni\'s Famous Mac\'n\'Cheese', todays_special: false, description: Faker::Food.description, category: "Main Dishes", price: [8, 9, 10, 11, 12].sample, restaurant: @fifth_restaurant)
+thirty_dish.photo.attach(io: URI.open('https://res.cloudinary.com/dinjscr9h/image/upload/v1614161541/separeat/macncheese.jpg'), filename: 'main dishes image', content_type: 'image/jpg')
 thirty_dish.save!
 
-thirtyone_dish = Dish.new(name: Faker::Dessert.variety, todays_special: false, description: "#{Faker::Dessert.flavor} & #{Faker::Dessert.topping}", category: "Desserts", price: [4, 4.5, 5, 5.5].sample, restaurant: @fifth_restaurant)
-thirtyone_dish.photo.attach(io: URI.open('https://res.cloudinary.com/dinjscr9h/image/upload/v1613902675/dessert_pzosgr.jpg'), filename: 'desserts image', content_type: 'image/jpg')
+thirtyone_dish = Dish.new(name: 'Ice Cream', todays_special: false, description: "#{Faker::Dessert.flavor} & #{Faker::Dessert.topping}", category: "Desserts", price: [4, 4.5, 5, 5.5].sample, restaurant: @fifth_restaurant)
+thirtyone_dish.photo.attach(io: URI.open('https://res.cloudinary.com/dinjscr9h/image/upload/v1614162631/separeat/dessert_1.jpg'), filename: 'desserts image', content_type: 'image/jpg')
 thirtyone_dish.save!
 
-thirtytwo_dish = Dish.new(name: Faker::Dessert.variety, todays_special: false, description: "#{Faker::Dessert.flavor} & #{Faker::Dessert.topping}", category: "Desserts", price: [4, 4.5, 5, 5.5].sample, restaurant: @fifth_restaurant)
-thirtytwo_dish.photo.attach(io: URI.open('https://res.cloudinary.com/dinjscr9h/image/upload/v1613902675/dessert_pzosgr.jpg'), filename: 'desserts image', content_type: 'image/jpg')
+thirtytwo_dish = Dish.new(name: 'Pudding', todays_special: false, description: "#{Faker::Dessert.flavor} & #{Faker::Dessert.topping}", category: "Desserts", price: [4, 4.5, 5, 5.5].sample, restaurant: @fifth_restaurant)
+thirtytwo_dish.photo.attach(io: URI.open('https://res.cloudinary.com/dinjscr9h/image/upload/v1614162811/separeat/dessert_2.jpg'), filename: 'desserts image', content_type: 'image/jpg')
 thirtytwo_dish.save!
 
-thirtythree_dish = Dish.new(name: Faker::Dessert.variety, todays_special: false, description: "#{Faker::Dessert.flavor} & #{Faker::Dessert.topping}", category: "Desserts", price: [4, 4.5, 5, 5.5].sample, restaurant: @fifth_restaurant)
-thirtythree_dish.photo.attach(io: URI.open('https://res.cloudinary.com/dinjscr9h/image/upload/v1613902675/dessert_pzosgr.jpg'), filename: 'desserts image', content_type: 'image/jpg')
+thirtythree_dish = Dish.new(name: 'Cake', todays_special: false, description: "#{Faker::Dessert.flavor} & #{Faker::Dessert.topping}", category: "Desserts", price: [4, 4.5, 5, 5.5].sample, restaurant: @fifth_restaurant)
+thirtythree_dish.photo.attach(io: URI.open('https://res.cloudinary.com/dinjscr9h/image/upload/v1611076593/samples/food/dessert.jpg'), filename: 'desserts image', content_type: 'image/jpg')
 thirtythree_dish.save!
 
 thirtyfour_dish = Dish.new(name: Faker::Beer.name, todays_special: false, description: Faker::Beer.style, category: "Beers", price: [3.5, 4, 4.5, 5].sample, restaurant: @fifth_restaurant)
-thirtyfour_dish.photo.attach(io: URI.open('https://res.cloudinary.com/dinjscr9h/image/upload/v1614074017/beers_emlju1.jpg'), filename: 'beers image', content_type: 'image/jpg')
+thirtyfour_dish.photo.attach(io: URI.open('https://res.cloudinary.com/dinjscr9h/image/upload/v1614162249/separeat/beer_1.jpg'), filename: 'beers image', content_type: 'image/jpg')
 thirtyfour_dish.save!
 
 thirtyfive_dish = Dish.new(name: Faker::Beer.name, todays_special: false, description: Faker::Beer.style, category: "Beers", price: [3.5, 4, 4.5, 5].sample, restaurant: @fifth_restaurant)
-thirtyfive_dish.photo.attach(io: URI.open('https://res.cloudinary.com/dinjscr9h/image/upload/v1614074017/beers_emlju1.jpg'), filename: 'beers image', content_type: 'image/jpg')
+thirtyfive_dish.photo.attach(io: URI.open('https://res.cloudinary.com/dinjscr9h/image/upload/v1614161422/separeat/beer_2.jpg'), filename: 'beers image', content_type: 'image/jpg')
 thirtyfive_dish.save!
 
 thirtysix_dish = Dish.new(name: Faker::Coffee.blend_name, todays_special: false, description: Faker::Coffee.notes, category: "Hot Beverages", price: [2.5, 3, 3.5].sample.to_f, restaurant: @fifth_restaurant)
-thirtysix_dish.photo.attach(io: URI.open('https://res.cloudinary.com/dinjscr9h/image/upload/v1613232517/capuccino_knecpy.jpg'), filename: 'hot_bevs image', content_type: 'image/jpg')
+thirtysix_dish.photo.attach(io: URI.open('https://res.cloudinary.com/dinjscr9h/image/upload/v1614162704/separeat/coffee_1.jpg'), filename: 'hot_bevs image', content_type: 'image/jpg')
 thirtysix_dish.save!
 
 thirtyseven_dish = Dish.new(name: Faker::Coffee.blend_name, todays_special: false, description: Faker::Coffee.notes, category: "Hot Beverages", price: [2.5, 3, 3.5].sample.to_f, restaurant: @fifth_restaurant)
-thirtyseven_dish.photo.attach(io: URI.open('https://res.cloudinary.com/dinjscr9h/image/upload/v1613232517/capuccino_knecpy.jpg'), filename: 'hot_bevs image', content_type: 'image/jpg')
+thirtyseven_dish.photo.attach(io: URI.open('https://res.cloudinary.com/dinjscr9h/image/upload/v1614163137/separeat/coffee_2.jpg'), filename: 'hot_bevs image', content_type: 'image/jpg')
 thirtyseven_dish.save!
 
-thirtyeight_dish = Dish.new(name: 'Still Water', todays_special: false, description: '0.33 l', category: "Beverages", price: 2.5, restaurant: @fifth_restaurant)
-thirtyeight_dish.photo.attach(io: URI.open('https://res.cloudinary.com/dinjscr9h/image/upload/v1614074020/lemonades_aklffr.jpg'), filename: 'bevs image', content_type: 'image/jpg')
-thirtyeight_dish.save!
+# thirtyeight_dish = Dish.new(name: 'Still Water', todays_special: false, description: '0.33 l', category: "Beverages", price: 2.5, restaurant: @fifth_restaurant)
+# thirtyeight_dish.photo.attach(io: URI.open('https://res.cloudinary.com/dinjscr9h/image/upload/v1614161122/separeat/mineral-water.jpg'), filename: 'bevs image', content_type: 'image/jpg')
+# thirtyeight_dish.save!
 
 thirtynine_dish = Dish.new(name: 'Sparkling Water', todays_special: false, description: '0.33 l', category: "Beverages", price: 2.5, restaurant: @fifth_restaurant)
-thirtynine_dish.photo.attach(io: URI.open('https://res.cloudinary.com/dinjscr9h/image/upload/v1614074020/lemonades_aklffr.jpg'), filename: 'bevs image', content_type: 'image/jpg')
+thirtynine_dish.photo.attach(io: URI.open('https://res.cloudinary.com/dinjscr9h/image/upload/v1614161122/separeat/mineral-water.jpg'), filename: 'bevs image', content_type: 'image/jpg')
 thirtynine_dish.save!
 
 fourty_dish = Dish.new(name: 'Apple Juice', todays_special: false, description: '0.33 l', category: "Beverages", price: 3.5, restaurant: @fifth_restaurant)
-fourty_dish.photo.attach(io: URI.open('https://res.cloudinary.com/dinjscr9h/image/upload/v1614074020/lemonades_aklffr.jpg'), filename: 'bevs image', content_type: 'image/jpg')
+fourty_dish.photo.attach(io: URI.open('https://res.cloudinary.com/dinjscr9h/image/upload/v1614163235/separeat/lemonade.jpg'), filename: 'bevs image', content_type: 'image/jpg')
 fourty_dish.save!
 
-fourtyone_dish = Dish.new(name: 'Apfelschorle', todays_special: false, description: '0.33 l', category: "Beverages", price: 3.5, restaurant: @fifth_restaurant)
-fourtyone_dish.photo.attach(io: URI.open('https://res.cloudinary.com/dinjscr9h/image/upload/v1614074020/lemonades_aklffr.jpg'), filename: 'bevs image', content_type: 'image/jpg')
-fourtyone_dish.save!
+# fourtyone_dish = Dish.new(name: 'Apfelschorle', todays_special: false, description: '0.33 l', category: "Beverages", price: 3.5, restaurant: @fifth_restaurant)
+# fourtyone_dish.photo.attach(io: URI.open('https://res.cloudinary.com/dinjscr9h/image/upload/v1614163235/separeat/lemonade.jpg'), filename: 'bevs image', content_type: 'image/jpg')
+# fourtyone_dish.save!
 
 fourtytwo_dish = Dish.new(name: 'Coke', todays_special: false, description: '0.33 l', category: "Beverages", price: 3.5, restaurant: @fifth_restaurant)
-fourtytwo_dish.photo.attach(io: URI.open('https://res.cloudinary.com/dinjscr9h/image/upload/v1614074020/lemonades_aklffr.jpg'), filename: 'bevs image', content_type: 'image/jpg')
+fourtytwo_dish.photo.attach(io: URI.open('https://res.cloudinary.com/dinjscr9h/image/upload/v1614161053/separeat/coke.jpg'), filename: 'bevs image', content_type: 'image/jpg')
 fourtytwo_dish.save!
-puts "#{Dish.count}/42 dishes were created."
+puts "#{Dish.count}/40 dishes were created."
 
 # 5. VISITS
 
@@ -450,7 +450,7 @@ Restaurant.fifth.tables.each {|table| @visits_fifth_restaurant << table.visits}
 10.times {Order.create!(status: 0, visit: @visits_fifth_restaurant.flatten.sample, dish: @dishes_fifth_restaurant.sample)}
 puts "#{Order.count}/50 orders were created."
 
-# REVIEWS
+# 7. REVIEWS
 
 puts "Creating reviews..."
 @users = [@user_six, @user_seven, @user_eight, @user_nine, @user_ten, @user_eleven, @user_twelve]
@@ -464,3 +464,8 @@ puts "Creating reviews..."
   Review.create!(user: @users.sample, restaurant: @fifth_restaurant, content: message, rating: 5)
 end
 puts "#{Review.count}/20 reviews were created."
+
+# FAKE VISIT FOR DEMO
+puts "Creating the demo visit"
+@fake_visit = Visit.create!(start_date: "2021-02-22 18:00:00 CET", end_date: "2021-02-22 21:00:00 CET", guests: 5, user: @second_user, table: @table_fifteen)
+puts "The demo visit #{@fake_visit} was created."

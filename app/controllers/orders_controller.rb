@@ -21,9 +21,8 @@ class OrdersController < ApplicationController
     @order = Order.new
     authorize @order
     @order.visit = @visit
-    # @dish = Dish.find(params[:dish_id])
-    # @order.dish = @dish
-    @order.dish = Dish.first
+    @dish = Dish.find(params[:dish_id])
+    @order.dish = @dish
 
     if @order.save
       redirect_to visit_orders_path(@visit, @order)
