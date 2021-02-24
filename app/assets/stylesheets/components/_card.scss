@@ -41,9 +41,10 @@
   background-position: center;
   height: 180px;
   width: 180px;
-  display: flex;
+  display: flex !important;
   justify-content: center;
   align-items: center;
+  align-content: space-between;
   color: $dark-yellow;
   font-size: 24px;
   font-weight: bold;

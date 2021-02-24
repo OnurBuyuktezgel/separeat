@@ -77,3 +77,7 @@ end
 
 # Geocoder
 gem 'geocoder'
+
+# Slick-carousel
+gem "jquery-slick-rails"
+

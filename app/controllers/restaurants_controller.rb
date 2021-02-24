@@ -22,6 +22,8 @@ class RestaurantsController < ApplicationController
     else
       @dishes = @dishes.all
     end
+
+    @dish_categories = @dishes.map(&:category).uniq
   end
 
   def new
