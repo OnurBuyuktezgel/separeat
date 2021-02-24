@@ -3,7 +3,6 @@ class RestaurantsController < ApplicationController
 
   def index
     @restaurants = policy_scope(Restaurant).order(created_at: :desc)
-
     @markers = @restaurants.geocoded.map do |restaurant|
       {
         lat: restaurant.latitude,

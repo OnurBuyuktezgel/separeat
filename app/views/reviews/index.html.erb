@@ -1,4 +1,4 @@
-
+<div class="container">
 <div class="card-restaurant">
     <% if @restaurant.photo.attached? %>
       <%= cl_image_tag @restaurant.photo.key, height: 300, width: 400, crop: :fill %>
@@ -10,33 +10,45 @@
       <div><h2>€€€</h2></div>
     </div>
   </div>
-<h3><%= pluralize @restaurant.reviews.size, "review" %></h3>
 
 
 
-  <% @reviews.each do |review|  %>
+<div class="orders-list" style="margin-top: 160px;">
 
-   <% review.rating.times do %>
-    <i class="fas fa-star"style="font-size:24px;color:=#FFCF3E" ></i>
-   <% end %>
-
-   <% (5 - review.rating).times do %>
-  <i class="fa fa-star-o" style="font-size:24px;color:grey">
-   <% end %>
-   <% end %>
+<h3><%= pluralize @restaurant.reviews.size, "review"%></h3>
 
 
 
-<div  id="reviews" style="background-color: white; border-radius: 15px">
+<div  id="reviews" style=" border-radius: 15px;">
 
-  <% if @restaurant.reviews.blank? %>
+<% if @restaurant.reviews.blank? && @restaurant.user != current_user %>
     Be the first to leave a review for <%= @restaurant.name %>
   <% else %>
     <% @restaurant.reviews.each do |review| %>
-      <p><%= review.content %></p>
+     <p id="review-<%= review.id %>"><%= review.content %>
+
+
+
+<% review.rating.times do %>
+  <i class="fas fa-star"style="font-size:16px;color:=#FFCF3E" ></i>
+   <% end %>
+   <% (5 - review.rating).times do %>
+  <i class="fa fa-star-o" style="font-size:16px;color:=grey" ></i>
+   <% end %>
+
+
+      <%= review.rating %></p>
     <% end %>
   <% end %>
-<%= simple_form_for([ @restaurant, @review ], remote: true) do |f| %>
-  <%= f.input :content, as: :text %>
-  <%= f.button :submit, 'Leave Review', class: 'btn-flat' %>
+</div>
+
+<% unless @restaurant.user == current_user %>
+<%= simple_form_for [ @restaurant, @review ],method: :POST, remote: true  do |f| %>
+  <%= f.input :content, as: :text, label: 'How was your Meal?',error: 'Minimum 5 characters' %>
+   <%= f.input :rating, as: :integer, label: 'Rate us between 1-5?' %>
+<div class="align-button">  <%= f.button :submit, 'Leave a Review', class: 'btn btn-flat' %></div>
 <% end %>
+<% end %>
+
+
+ </div>
