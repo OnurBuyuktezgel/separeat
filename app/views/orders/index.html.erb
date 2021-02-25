@@ -16,7 +16,10 @@
 </div>
 
 <div class="align-button">
-  <%= link_to 'Place your order', '#',  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#exampleModalCenter', class: 'btn-flat'}  %>
+  <%= link_to "Back to menu", restaurant_path(@visit.table.restaurant), class: "btn-flat", id: 'first' %>
+</div>
+<div class="align-button">
+  <%= link_to 'Place your order', '#',  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#exampleModalCenter', class: 'btn-flat', id: 'second'}  %>
 </div>
 <div class="align-button">
   <%= link_to "Call a waiter", "#", class: "btn-flat-secondary" %>
