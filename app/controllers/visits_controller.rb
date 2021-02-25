@@ -13,6 +13,7 @@ class VisitsController < ApplicationController
     @prices = []
     @dishes.each {|dish| @prices << dish.price}
     @total = @prices.sum
+    @restaurant = @visit.table.restaurant
   end
 
   def new
