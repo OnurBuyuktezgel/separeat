@@ -25,10 +25,10 @@
           </div>
         </div>
         <li class="nav-item">
-          <%= link_to "Order details", "#", class: "btn btn-flat btn-navbar" %>
+          <%= link_to "Order details", visit_orders_path(Visit.last), class: "btn btn-flat btn-navbar" %>
         </li>
         <li class="nav-item">
-          <%= link_to "Pay & Checkout", "#", class: "btn btn-flat btn-navbar" %>
+          <%= link_to "Pay & Checkout", visit_path(Visit.last), class: "btn btn-flat btn-navbar" %>
         </li>
         <li class="nav-item">
           <%= link_to "Call waiter", "#", class: "btn btn-flat btn-navbar" %>
