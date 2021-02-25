@@ -38,9 +38,8 @@
       </div>
       <div class="modal-footer">
         <%= link_to "Back to menu", restaurant_path(@visit.table.restaurant), class: "btn-flat" %>
-        <%= link_to "Checkout", "#", class: "btn-flat" %>
+        <%= link_to "Checkout", visit_path(@visit), class: "btn-flat" %>
       </div>
     </div>
   </div>
 </div>
-

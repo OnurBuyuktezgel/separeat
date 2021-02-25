@@ -10,7 +10,7 @@ class VisitPolicy < ApplicationPolicy
   end
 
   def show?
-    true if @user.user_type == "Customer"
+    true
   end
 
   def update?

@@ -1,8 +1,18 @@
 class VisitsController < ApplicationController
-  before_action :set_visit, only: [:update]
+  before_action :set_visit, only: [:show, :update]
 
   def index
     @visits = policy_scope(Visit).order(created_at: :desc)
+  end
+
+  def show
+    authorize @visit
+    @orders = @visit.orders
+    @dishes = []
+    @orders.each {|order| @dishes << order.dish}
+    @prices = []
+    @dishes.each {|dish| @prices << dish.price}
+    @total = @prices.sum
   end
 
   def new

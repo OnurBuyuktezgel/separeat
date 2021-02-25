@@ -1,0 +1,46 @@
+#confirm {
+  height: 16px;
+  width: 16px;
+}
+
+#tip-header {
+  text-align: center;
+  padding: 16px;
+}
+
+.tip-buttons {
+  display: flex;
+  justify-content: center;
+}
+
+.btn-tip {
+  color: $almost-black;
+  background: $dark-yellow;
+  padding: 8px 60px;
+  border-radius: 15px;
+  transition: background 0.3s ease;
+}
+
+.btn-tip:hover {
+  background-color: white;
+  padding: 6px 57px;
+  border: 3px solid $dark-yellow;
+  color: $almost-black;
+  text-decoration: none;
+}
+
+.btn-pay {
+  color: $almost-black;
+  background: $dark-yellow;
+  padding: 8px 140px;
+  border-radius: 15px;
+  transition: background 0.3s ease;
+}
+
+.btn-pay:hover {
+  background-color: white;
+  padding: 6px 137px;
+  border: 3px solid $dark-yellow;
+  color: $almost-black;
+  text-decoration: none;
+}
