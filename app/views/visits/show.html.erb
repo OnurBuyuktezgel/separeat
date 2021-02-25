@@ -1,0 +1,27 @@
+<h2 class="order-header">Checkout</h2>
+
+<div class="orders-list">
+  <h5>Pay with</h5>
+  <ul>
+    <li><input id="confirm" type="checkbox" /><label for="confirm">&nbsp;&nbsp;PayPal</label></li>
+    <li><input id="confirm" type="checkbox" /><label for="confirm">&nbsp;&nbsp;Credit Card</label></li>
+    <li><input id="confirm" type="checkbox" /><label for="confirm">&nbsp;&nbsp;Apple Pay</label></li>
+   <li><input id="confirm" type="checkbox" /><label for="confirm">&nbsp;&nbsp;Google Pay</label></li>
+  </ul>
+</div>
+
+<h5 id="tip-header">Would you like to add a tip?</h5>
+
+<div class="tip-buttons">
+  <div style="margin-right: 4px"> <%= link_to "5 % ", "#", class: "btn-tip" %> </div>
+  <div> <%= link_to "10 %", "#", class: "btn-tip" %> </div>
+</div>
+
+<div class="orders-list" style="margin: 40px 0">
+  <ul>
+    <div class="order-total"><li>Total</li><li> <%= @total %> €</li></div>
+  </ul>
+</div>
+
+<div class="align-button"> <%= link_to "Pay", "#", class: "btn-pay" %> </div>
+<div class="align-button"> <%= link_to "Leave a review", "#", class: "btn-flat" %> </div>
