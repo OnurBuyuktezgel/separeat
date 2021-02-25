@@ -17,6 +17,12 @@ class RestaurantsController < ApplicationController
     @dish = Dish.new
     @visit = Visit.last
 
+    if params[:query].present?
+      @dishes = @dishes.search_by_name_and_category(params[:query])
+    else
+      @dishes = @dishes.all
+    end
+
     @starters = []
     @dishes.each {|dish| @starters << dish if dish.category == "Starters"}
     @soups = []
@@ -46,14 +52,8 @@ class RestaurantsController < ApplicationController
     @hot_bevs = []
     @dishes.each {|dish| @hot_bevs << dish if dish.category == "Hot Beverages"}
 
-    if params[:query].present?
-      @dishes = @dishes.search_by_name_and_category(params[:query])
-    else
-      @dishes = @dishes.all
-    end
-
     @dish_categories = @dishes.map(&:category).uniq
-    
+
     @average_price = average_price
   end
 

@@ -1,6 +1,9 @@
 <div class="navbar navbar-light navbar-lewagon">
-  <%= link_to root_path, class: "navbar-brand" do %>
-    <i class="fas fa-utensils"></i>
+  <%= link_to visit_orders_path(Visit.last), class: "navbar-brand" do %>
+    <div class="counter" data-controller="counter">
+      <i class="fas fa-shopping-bag"></i>
+      <span style="color:white" data-counter-target="count">(<%= @order_count %>)</span>
+    </div>
   <% end %>
 
   <button class="navbar-dark navbar-toggler border-white rounded" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -18,7 +21,7 @@
           <% end %>
           <div class="card-product-infos">
             <h2><%= current_user.first_name %> <%= current_user.last_name %></h2>
-            <p>@Eataly</p>
+            <p>@Toni's Burgers</p>
           </div>
         </div>
         <li class="nav-item">
