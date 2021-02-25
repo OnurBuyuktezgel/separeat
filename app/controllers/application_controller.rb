@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_user!
   include Pundit
 
- before_action :configure_permitted_parameters, if: :devise_controller?
+  before_action :configure_permitted_parameters, if: :devise_controller?
 
   # Pundit: white-list approach.
   after_action :verify_authorized, except: :index, unless: :skip_pundit?
@@ -15,14 +15,24 @@ class ApplicationController < ActionController::Base
   #   redirect_to(root_path)
   # end
 
+  before_action :set_counter
+
   private
+
+  def set_counter
+    # visit = Visit.find(current_user.id)
+    # if visit.present?
+    #   @order_count = Order.where(visit_id: visit).count
+    # else
+    #   @order_count = 0
+    # end
+    visit = Visit.last
+    @order_count = visit.orders.count
+  end
 
   def skip_pundit?
     devise_controller? || params[:controller] =~ /(^(rails_)?admin)|(^pages$)/
   end
-
-
-
 
   def configure_permitted_parameters
     # For additional fields in app/views/devise/registrations/new.html.erb
