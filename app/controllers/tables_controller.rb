@@ -1,11 +1,10 @@
 require 'rqrcode'
 
 class TablesController < ApplicationController
-  skip_after_action :verify_authorized
 
   def qr_code
     set_table
-
+    authorize @table
     qrcode = RQRCode::QRCode.new(restaurant_url(@table.restaurant))
 
     @svg = qrcode.as_svg(
