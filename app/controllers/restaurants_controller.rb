@@ -1,3 +1,5 @@
+require 'rqrcode'
+
 class RestaurantsController < ApplicationController
   before_action :set_restaurant, only: [:show]
 
@@ -10,6 +12,20 @@ class RestaurantsController < ApplicationController
         infoWindow: render_to_string(partial: "info_window", locals: { restaurant: restaurant })
       }
     end
+  end
+
+  def qr_code
+    set_restaurant
+
+  qrcode = RQRCode::QRCode.new(restaurant_url(@restaurant))
+
+    @svg = qrcode.as_svg(
+      offset: 0,
+      color: '000',
+      shape_rendering: 'crispEdges',
+      module_size: 6,
+      standalone: true
+    )
   end
 
   def show
