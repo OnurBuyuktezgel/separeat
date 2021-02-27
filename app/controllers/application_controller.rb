@@ -19,7 +19,7 @@ class ApplicationController < ActionController::Base
 
   private
 
-  def set_counter
+   def set_counter
     # visit = Visit.find(current_user.id)
     # if visit.present?
     #   @order_count = Order.where(visit_id: visit).count
@@ -28,7 +28,7 @@ class ApplicationController < ActionController::Base
     # end
     visit = Visit.last
     @order_count = visit.orders.count
-  end
+   end
 
   def skip_pundit?
     devise_controller? || params[:controller] =~ /(^(rails_)?admin)|(^pages$)/

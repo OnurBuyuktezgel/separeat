@@ -4,6 +4,9 @@ class RestaurantPolicy < ApplicationPolicy
       scope.all
     end
   end
+def qr_code?
+  true
+end
 
   def create?
     true if @user.user_type == "Restaurant Owner"
