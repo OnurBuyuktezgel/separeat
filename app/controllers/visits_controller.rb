@@ -1,5 +1,5 @@
 class VisitsController < ApplicationController
-  before_action :set_visit, only: [:show, :update]
+  before_action :set_visit, only: [:show, :update; :destroy]
 
   def index
     @visits = policy_scope(Visit).order(created_at: :desc)
@@ -35,6 +35,11 @@ class VisitsController < ApplicationController
     @visit.update(visit_params)
     redirect_to restaurant_path(@restaurant)
     # This path should be updated with the checkout success page!
+  end
+
+  def destroy
+    @visit.destroy
+    redirect_to root_path
   end
 
   private
