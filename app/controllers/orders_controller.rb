@@ -1,10 +1,11 @@
 class OrdersController < ApplicationController
-  before_action :set_visit, only: [:index, :show, :new, :create, :edit, :update]
-  before_action :set_order, only: [:show]
+  before_action :set_order, only: [:show, :destroy, :add_quantity, :reduce_quantity]
+  before_action :set_visit, only: [:index, :show, :new, :create, :edit, :update, :add_quantity, :reduce_quantity]
 
   def index
     @orders = policy_scope(Order).order(created_at: :desc)
     @orders = @visit.orders
+    @new_array = []
     @orders_hash = @orders.each_with_object(Hash.new(0)) { |order, counts| counts[order.dish] += 1 }
     @total = 0
   end
@@ -39,17 +40,38 @@ class OrdersController < ApplicationController
     redirect_to visit_orders_path
   end
 
-  private
-
-  def set_visit
-    @visit = Visit.find(params[:visit_id])
+  def destroy
+    authorize @order
+    @visit = @order.visit
+    @order.destroy
+    redirect_to visit_orders_path(@visit)
   end
+
+  private
 
   def set_order
     @order = Order.find(params[:id])
   end
 
+  def set_visit
+    @visit = Visit.find(params[:visit_id])
+  end
+
   def order_params
-    params.require(:order).permit(:status, :dish_id)
+    params.require(:order).permit(:status, :quantity, :dish_id)
+  end
+
+  def add_quantity
+    @order.quantity += 1
+    @order.save
+    redirect_to visit_orders_path(@visit)
+  end
+
+  def reduce_quantity
+    if @order.quantity > 1
+      @order.quantity -= 1
+    end
+    @order.save
+    redirect_to visit_orders_path(@visit)
   end
 end

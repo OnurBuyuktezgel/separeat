@@ -1,6 +1,6 @@
 class DishesController < ApplicationController
-  # before_action :set_dish, only: [:show]
-  before_action :set_restaurant_id, only: [:index, :show, :new, :create]
+  before_action :set_dish, only: [:show, :edit, :update, :destroy]
+  before_action :set_restaurant, only: [:index, :show, :new, :create, :edit, :update, :destroy]
 
   def index
     @dishes = policy_scope(Dish).order(created_at: :desc)
@@ -14,7 +14,6 @@ class DishesController < ApplicationController
   end
 
   def show
-    # @dishes = @restaurant.dishes
   end
 
   def new
@@ -33,9 +32,27 @@ class DishesController < ApplicationController
     end
   end
 
+  def edit
+  end
+
+  def update
+    @dish.update(dish_params)
+    redirect_to root_path
+  end
+
+  def destroy
+    @dish.destroy
+    redirect_to root_path
+  end
+
   private
 
-  def set_restaurant_id
+  def set_dish
+    @dish = Dish.find(params[:id])
+    authorize @dish
+  end
+
+  def set_restaurant
     @restaurant = Restaurant.find(params[:restaurant_id])
   end
 
