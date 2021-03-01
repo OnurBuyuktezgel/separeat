@@ -1,7 +1,6 @@
 require 'rqrcode'
 
 class TablesController < ApplicationController
-
   def qr_code
     set_table
     authorize @table

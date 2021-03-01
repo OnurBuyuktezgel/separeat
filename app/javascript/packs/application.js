@@ -29,6 +29,7 @@ import { initSlick } from '../plugins/init_slick';
 import { initMapbox } from '../plugins/init_mapbox';
 import { initAutocomplete } from '../plugins/init_autocomplete';
 import { loadDynamicBannerText } from '../components/banner';
+import { codeReader } from '../plugins/init_zxing';
 
 
 // Internal imports, e.g:
@@ -41,6 +42,7 @@ document.addEventListener('turbolinks:load', () => {
   initAutocomplete();
   loadDynamicBannerText();
   initSlick();
+  codeReader();
 });
 
 
