@@ -30,6 +30,7 @@ import { initMapbox } from '../plugins/init_mapbox';
 import { initAutocomplete } from '../plugins/init_autocomplete';
 import { loadDynamicBannerText } from '../components/banner';
 import { codeReader } from '../plugins/init_zxing';
+import Rails from '@rails/ujs';
 
 
 // Internal imports, e.g:
@@ -43,6 +44,7 @@ document.addEventListener('turbolinks:load', () => {
   loadDynamicBannerText();
   initSlick();
   codeReader();
+  Rails.start();
 });
 
 

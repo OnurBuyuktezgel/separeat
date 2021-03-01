@@ -1,5 +1,6 @@
 class VisitsController < ApplicationController
-  before_action :set_visit, only: [:show, :update; :destroy]
+  before_action :set_visit, only: [:show, :update, :destroy]
+  before_action :set_qr_data, only: :create
 
   def index
     @visits = policy_scope(Visit).order(created_at: :desc)
@@ -18,6 +19,7 @@ class VisitsController < ApplicationController
 
   def new
     @visit = Visit.new
+    authorize @visit
   end
 
   def create
@@ -29,6 +31,16 @@ class VisitsController < ApplicationController
     else
       render :new
     end
+
+    # creating a visit with the QR code
+    # @visit = Visit.new(content: @qr_data)
+    # authorize @visit
+    # @visit.user = current_user
+    # if @visit.save
+    #   redirect_to restaurant_path(@restaurant)
+    # else
+    #   render :new
+    # end
   end
 
   def update
@@ -47,6 +59,11 @@ class VisitsController < ApplicationController
   def set_visit
     @visit = Visit.find(params[:id])
     authorize @visit
+  end
+
+  def set_qr_data
+    qr_code_params = JSON.parse(params[:qr_code_json_data]).with_indifferent_access
+    @qr_data = qr_code_params[:qr_data]
   end
 
   def visit_params
