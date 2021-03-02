@@ -5,8 +5,12 @@ class VisitPolicy < ApplicationPolicy
     end
   end
 
+  def new?
+    true
+  end
+
   def create?
-    true if @user.user_type == "Customer"
+    true
   end
 
   def show?

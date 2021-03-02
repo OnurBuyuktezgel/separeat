@@ -6,22 +6,15 @@ Rails.application.routes.draw do
     resources :reviews, only: [:create, :new, :index]
     resources :dishes, only: [:index, :create, :edit, :update, :destroy]
     resources :tables, only: [:create, :destroy]
-
-end
-
-   resources :tables, only: [ ] do
-  member do
-      get :qr_code
-   end
   end
 
- # resources :restaurants, only: [ ] do
- # member do
- #     get :qr_code
- #  end
- # end
+  resources :tables, only: [] do
+    member do
+      get :qr_code
+    end
+  end
 
-
+  get 'qr-code-reader', to: 'qr_code_readers#index'
 
   resources :visits, only: [:index, :show, :new, :create, :update] do
     resources :orders, only: [:index, :show, :new, :create, :edit, :update]
@@ -31,5 +24,6 @@ end
     # get 'orders/:id' => "orders#show", as: "order"
     # delete 'orders/:id' => "orders#destroy"
   end
+
   resources :orders, only: [:destroy]
 end

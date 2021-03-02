@@ -29,6 +29,8 @@ import { initSlick } from '../plugins/init_slick';
 import { initMapbox } from '../plugins/init_mapbox';
 import { initAutocomplete } from '../plugins/init_autocomplete';
 import { loadDynamicBannerText } from '../components/banner';
+import { codeScanner } from '../plugins/init_zxing';
+import Rails from '@rails/ujs';
 
 
 // Internal imports, e.g:
@@ -41,6 +43,8 @@ document.addEventListener('turbolinks:load', () => {
   initAutocomplete();
   loadDynamicBannerText();
   initSlick();
+  codeScanner();
+  Rails.start();
 });
 
 
