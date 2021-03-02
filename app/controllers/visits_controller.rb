@@ -23,24 +23,17 @@ class VisitsController < ApplicationController
   end
 
   def create
-    @visit = Visit.new(visit_params)
+    # creating a visit with the QR code
+    @visit = Visit.new(start_date: Time.now)
     authorize @visit
     @visit.user = current_user
-    if @visit.save
+    @visit.table_id = @qr_data.to_i
+    @restaurant = @visit.table.restaurant
+    if @visit.save!
       redirect_to restaurant_path(@restaurant)
     else
       render :new
     end
-
-    # creating a visit with the QR code
-    # @visit = Visit.new(content: @qr_data)
-    # authorize @visit
-    # @visit.user = current_user
-    # if @visit.save
-    #   redirect_to restaurant_path(@restaurant)
-    # else
-    #   render :new
-    # end
   end
 
   def update

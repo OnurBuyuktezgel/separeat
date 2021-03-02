@@ -4,7 +4,8 @@ class TablesController < ApplicationController
   def qr_code
     set_table
     authorize @table
-    qrcode = RQRCode::QRCode.new(restaurant_url(@table.restaurant))
+    qrcode = RQRCode::QRCode.new(@table.id.to_s)
+    # qrcode = RQRCode::QRCode.new(restaurant_url(@table.restaurant))
 
     @svg = qrcode.as_svg(
       offset: 0,

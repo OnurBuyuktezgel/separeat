@@ -1,6 +1,8 @@
 import { BrowserQRCodeReader } from '@zxing/library';
 import Rails from '@rails/ujs'; // Use to make an ajax post request to Rails
 
+const codeScanner = () => {
+
 const codeReader = new BrowserQRCodeReader();
 
 codeReader
@@ -29,20 +31,22 @@ codeReader
   .catch(error => {
     console.error(error);
   });
-
+}
 
 
 // ONLY READ - EXAMPLE
-//import { BrowserQRCodeReader } from '@zxing/library';
+// import { BrowserQRCodeReader } from '@zxing/library';
 
-//const codeReader = new BrowserQRCodeReader();
+// const codeReader = new BrowserQRCodeReader();
 
-//codeReader
-  //.decodeFromInputVideoDevice(undefined, 'video')
-  //.then((result) => {
-    // process the result
-    //console.log(result.text)
+// codeReader
+//   .decodeFromInputVideoDevice(undefined, 'video')
+//   .then((result) => {
+//     // process the result
+//     console.log(result.text)
 
-    //document.getElementById('result').textContent = result.text
-  //})
-  //.catch(err => console.error(err));
+//     document.getElementById('result').textContent = result.text
+//   })
+//   .catch(err => console.error(err));
+
+export { codeScanner };
