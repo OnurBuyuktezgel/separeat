@@ -1,0 +1,5 @@
+meta_product_name: "SeparEAT"
+meta_title: "SeparEAT - Stay healthy, stay open"
+meta_description: "With SeparEAT, you can easily check-in, check-out, order and pay while eating out"
+meta_image: "separeat_logo.svg" # should exist in `app/assets/images/`
+twitter_account: "@product_twitter_account"   # required for Twitter Cards
