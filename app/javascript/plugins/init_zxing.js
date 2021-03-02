@@ -50,3 +50,4 @@ codeReader
 //   .catch(err => console.error(err));
 
 export { codeScanner };
+

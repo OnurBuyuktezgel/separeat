@@ -17,6 +17,10 @@ class ApplicationController < ActionController::Base
 
   before_action :set_counter
 
+  def default_url_options
+    { host: ENV["DOMAIN"] || "localhost:3000" }
+  end
+
   private
 
    def set_counter
