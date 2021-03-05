@@ -6,26 +6,26 @@
 }
 
 .card-restaurant > img {
-  height: 200px;
+  height: 120px;
   width: 100%;
   object-fit: cover;
 }
 
 .card-restaurant h2 {
-  font-size: 24px;
+  font-size: 18px;
   font-weight: bold;
   margin: 0;
   color: $almost-black;
 }
 
 .card-restaurant h3 {
-  font-size: 22px;
+  font-size: 14px;
   margin: 0;
   color: $dark-yellow;
 }
 
 .card-restaurant .card-restaurant-infos {
-  padding: 16px;
+  padding: 8px 16px 0 16px;
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
@@ -33,22 +33,22 @@
 }
 
 .card-restaurant .card-restaurant-rating {
-  padding: 0 0 16px 16px;
+  padding: 8px 0 8px 16px;
 }
 
 .card-category {
+  background-color: $dark-grey;
   background-size: cover;
   background-position: center;
-  height: 180px;
-  width: 180px;
+  height: 80px;
   display: flex !important;
   justify-content: center;
   align-items: center;
   align-content: space-between;
   color: $dark-yellow;
-  font-size: 18px;
+  font-size: 14px;
   text-align: center;
-  font-weight: bold;
+  // font-weight: bold;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   border-radius: 15px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
@@ -56,30 +56,29 @@
 
 .card-dish {
   overflow: hidden;
-  height: 120px;
+  height: 60px;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   border-radius: 15px;
   display: flex;
   align-items: center;
   align-content: space-between;
-  // position: relative;
 }
 
 .card-dish img {
   height: 100%;
-  width: 30%;
+  width: 25%;
   object-fit: cover;
 }
 
 .card-dish h2 {
-  font-size: 18px;
-  font-weight: bold;
+  font-size: 14px;
   margin: 0;
+  font-weight: bold;
 }
 
 .card-dish p {
-  font-size: 14px;
+  font-size: 12px;
   line-height: 1.4;
   opacity: .7;
   margin-bottom: 0;
@@ -89,7 +88,7 @@
    display: -webkit-box;
    line-height: 16px;     /* fallback */
    max-height: 32px;      /* fallback */
-   -webkit-line-clamp: 2; /* number of lines to show */
+   -webkit-line-clamp: 1; /* number of lines to show */
    -webkit-box-orient: vertical;
 }
 
@@ -99,11 +98,6 @@
   // display: flex;
   // align-items: center;
   // justify-content: space-between;
-}
-
-.card-dish .card-dish-infos .btn-ghost {
-  // position: absolute;
-  right: 16px;
 }
 
 .card-product {

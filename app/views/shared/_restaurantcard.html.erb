@@ -1,4 +1,4 @@
-<div class="card-restaurant">
+<div class="card-restaurant" style="margin-top: 16px;">
   <% if @restaurant.photo.attached? %>
     <%= cl_image_tag @restaurant.photo.key, height: 300, width: 400, crop: :fill %>
   <% else %>
@@ -9,6 +9,8 @@
     <div><h2><%= @average_price %></h2></div>
   </div>
   <div class="card-restaurant-rating">
-    <h3><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half"></i></h3>
+    <%= link_to restaurant_reviews_path(@restaurant) do %>
+      <h3><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half"></i></h3>
+    <% end %>
   </div>
 </div>
