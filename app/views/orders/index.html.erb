@@ -5,11 +5,15 @@
     <% @orders_hash.each do |array| %>
       <div class="order-listing">
         <li>
-          <%= link_to '(+)', visit_orders_path(@visit, dish_id: array[0]), method: :POST %>
+          <div class="btn-group" role="group" aria-label="Basic example">
+            <%= link_to '–', order_path((Order.where(dish_id: array[0], visit_id: @visit)).first), method: :DELETE, class: "btn btn-orders"  %>
+            <%= link_to '+', visit_orders_path(@visit, dish_id: array[0]), method: :POST, class: "btn btn-orders" %>
+          </div>
           <%= array[1] %> <%= array[0][:name] %> (à <%= array[0][:price] %> €)
-          <%= link_to '(-)', order_path((Order.where(dish_id: array[0], visit_id: @visit)).first), method: :DELETE %>
         </li>
-        <li> <%= (array[1])*(array[0][:price]) %> € </li>
+        <li>
+          <%= (array[1])*(array[0][:price]) %> €
+        </li>
       </div>
       <% @total += (array[1])*(array[0][:price]) %>
     <% end %>
@@ -37,7 +41,6 @@
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
-<!--         <h1 class="modal-title" id="exampleModalLongTitle"></h1> -->
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>

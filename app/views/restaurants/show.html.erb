@@ -1,6 +1,6 @@
-<% content_for :meta_title, "#{@restaurant.name} is on #{DEFAULT_META["meta_product_name"]}" %>
-<% content_for :meta_description, @restaurant.category %>
-<% content_for :meta_image, cl_image_path(@restaurant.photo.path) %>
+<%# content_for :meta_title, "#{@restaurant.name} is on #{DEFAULT_META["meta_product_name"]}" %>
+<%# content_for :meta_description, @restaurant.category %>
+<%# content_for :meta_image, cl_image_path(@restaurant.photo.path) %>
 
 <div class="container">
     <div class="card-restaurant" style="margin-top: 16px;">
@@ -39,7 +39,15 @@
       <h2><%= dish.price %> € </h2>
       <p><%= dish.description %></p>
     </div>
-    <%= link_to '+', visit_orders_path(@visit, dish_id: dish.id), method: :POST, class: "btn-ghost"%>
+
+    <div data-controller="order">
+      <div data-target="order.content">
+        <%= link_to visit_orders_path(@visit, dish_id: dish.id), method: :POST, remote: true do %>
+          <button class="btn-ghost added" data-action="click->order#sayAdded">+</button>
+        <% end %>
+      </div>
+    </div>
+
   </div>
 <% end %>
 
@@ -296,3 +304,24 @@
     <%= render 'dishes/form' %>
   </div>
 <% end %>
+
+
+<!-- Modal -->
+<div class="modal fade" id="orderConfirmModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1>Added to your order.<i class="far fa-check-circle"></i></h1>
+        <h1 class="modal-title" id="exampleModalLongTitle"></h1>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      </div>
+      <div class="modal-footer">
+      </div>
+    </div>
+  </div>
+</div>
+
