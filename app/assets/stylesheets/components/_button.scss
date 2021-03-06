@@ -1,8 +1,8 @@
 .btn-ghost {
   color: $almost-black;
-  font-size: 24px;
+  font-size: 20px;
   border: 3px solid $almost-black;
-  padding: 0 12px;
+  padding: 0 10px;
   border-radius: 15px;
   transition: background 0.3s ease;
   display: inline-block;
@@ -18,14 +18,15 @@
 .btn-flat {
   color: $almost-black;
   background: $dark-yellow;
-  padding: 8px 24px;
+  padding: 8px 16px;
   border-radius: 15px;
   transition: background 0.3s ease;
+  font-size: 14px;
 }
 
 .btn-flat:hover {
   background-color: white;
-  padding: 6px 22px;
+  padding: 6px 14px;
   border: 3px solid $dark-yellow;
   color: $almost-black;
   text-decoration: none;

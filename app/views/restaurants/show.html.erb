@@ -2,30 +2,14 @@
 <% content_for :meta_description, @restaurant.category %>
 <% content_for :meta_image, cl_image_path(@restaurant.photo.key) %>
 
-<div class="container">
-    <div class="card-restaurant" style="margin-top: 16px;">
-      <% if @restaurant.photo.attached? %>
-        <%= cl_image_tag @restaurant.photo.key, height: 300, width: 400, crop: :fill %>
-      <% else %>
-        <img src="https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1500&q=80" />
-      <% end %>
-      <div class="card-restaurant-infos">
-        <div><h2><%= link_to @restaurant.name, restaurant_path(@restaurant) %></h2></div>
-        <div><h2><%= @average_price %></h2></div>
-      </div>
-
-      <div class="card-restaurant-rating">
-         <%= link_to restaurant_reviews_path(@restaurant) do %>
-        <h3><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half"></i></h3>
-      <% end %>
-      </div>
-    </div>
+<%= render 'shared/restaurantcard' %>
 
 <div style='padding: 16px 0 0 0'><%= render 'shared/searchform' %></div>
+
 <%= render 'shared/categorycard' %>
 
 <% unless @starters.empty? %>
-  <div style='padding: 16px 0 0 0'><a name="starters"><h3>Starters</h3></a></div>
+  <div style='padding: 16px 0 0 0'><a name="starters"><h3 style="font-size: 20px; font-weight: bold; padding-left: 14px">Starters</h3></a></div>
 <% end %>
 <% @starters.each do |dish| %>
   <div class="card-dish" style='margin-top: 16px'>
@@ -35,8 +19,7 @@
       <img src="https://images.unsplash.com/photo-1566935367576-6e0e852215d1?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80" />
     <% end %>
     <div class="card-dish-infos">
-      <h2><%= dish.name %></h2>
-      <h2><%= dish.price %> € </h2>
+      <h2><%= dish.name %> / <%= dish.price %> €</h2>
       <p><%= dish.description %></p>
     </div>
     <%= link_to '+', visit_orders_path(@visit, dish_id: dish.id), method: :POST, class: "btn-ghost"%>
@@ -44,7 +27,7 @@
 <% end %>
 
 <% unless @soups.empty? %>
-  <div style='padding: 16px 0 0 0'><h3>Soups</h3></div>
+  <div style='padding: 16px 0 0 0'><h3 style="font-size: 20px; font-weight: bold; padding-left: 14px">Soups</h3></div>
 <% end %>
 <% @soups.each do |dish| %>
   <div class="card-dish" style='margin-top: 16px'>
@@ -54,8 +37,7 @@
       <img src="https://images.unsplash.com/photo-1566935367576-6e0e852215d1?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80" />
     <% end %>
     <div class="card-dish-infos">
-      <h2><%= dish.name %></h2>
-      <h2><%= dish.price %> € </h2>
+      <h2><%= dish.name %> / <%= dish.price %> €</h2>
       <p><%= dish.description %></p>
     </div>
     <%= link_to '+', visit_orders_path(@visit, dish_id: dish.id), method: :POST ,class: "btn-ghost"%>
@@ -63,7 +45,7 @@
 <% end %>
 
 <% unless @salads.empty? %>
-  <div style='padding: 16px 0 0 0'><h3>Salads</h3></div>
+  <div style='padding: 16px 0 0 0'><h3 style="font-size: 20px; font-weight: bold; padding-left: 14px">Salads</h3></div>
 <% end %>
 <% @salads.each do |dish| %>
   <div class="card-dish" style='margin-top: 16px'>
@@ -73,8 +55,7 @@
       <img src="https://images.unsplash.com/photo-1566935367576-6e0e852215d1?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80" />
     <% end %>
     <div class="card-dish-infos">
-      <h2><%= dish.name %></h2>
-      <h2><%= dish.price %> € </h2>
+      <h2><%= dish.name %> / <%= dish.price %> €</h2>
       <p><%= dish.description %></p>
     </div>
     <%= link_to '+', visit_orders_path(@visit, dish_id: dish.id), method: :POST ,class: "btn-ghost"%>
@@ -82,7 +63,7 @@
 <% end %>
 
 <% unless @main_dishes.empty? %>
-  <div style='padding: 16px 0 0 0'><h3>Main Dishes</h3></div>
+  <div style='padding: 16px 0 0 0'><h3 style="font-size: 20px; font-weight: bold; padding-left: 14px">Main Dishes</h3></div>
 <% end %>
 <% @main_dishes.each do |dish| %>
     <div class="card-dish" style='margin-top: 16px'>
@@ -92,8 +73,7 @@
       <img src="https://images.unsplash.com/photo-1566935367576-6e0e852215d1?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80" />
     <% end %>
     <div class="card-dish-infos">
-      <h2><%= dish.name %></h2>
-      <h2><%= dish.price %> € </h2>
+      <h2><%= dish.name %> / <%= dish.price %> €</h2>
       <p><%= dish.description %></p>
     </div>
     <%= link_to '+', visit_orders_path(@visit, dish_id: dish.id), method: :POST ,class: "btn-ghost"%>
@@ -101,7 +81,7 @@
 <% end %>
 
 <% unless @meats.empty? %>
-  <div style='padding: 16px 0 0 0'><h3>Meat</h3></div>
+  <div style='padding: 16px 0 0 0'><h3 style="font-size: 20px; font-weight: bold; padding-left: 14px">Meat</h3></div>
 <% end %>
 <% @meats.each do |dish| %>
   <div class="card-dish" style='margin-top: 16px'>
@@ -111,8 +91,7 @@
       <img src="https://images.unsplash.com/photo-1566935367576-6e0e852215d1?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80" />
     <% end %>
     <div class="card-dish-infos">
-      <h2><%= dish.name %></h2>
-      <h2><%= dish.price %> € </h2>
+      <h2><%= dish.name %> / <%= dish.price %> €</h2>
       <p><%= dish.description %></p>
     </div>
     <%= link_to '+', visit_orders_path(@visit, dish_id: dish.id), method: :POST ,class: "btn-ghost"%>
@@ -120,7 +99,7 @@
 <% end %>
 
 <% unless @fishes.empty? %>
-  <div style='padding: 16px 0 0 0'><h3>Fish</h3></div>
+  <div style='padding: 16px 0 0 0'><h3 style="font-size: 20px; font-weight: bold; padding-left: 14px">Fish</h3></div>
 <% end %>
 <% @fishes.each do |dish| %>
   <div class="card-dish" style='margin-top: 16px'>
@@ -130,8 +109,7 @@
       <img src="https://images.unsplash.com/photo-1566935367576-6e0e852215d1?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80" />
     <% end %>
     <div class="card-dish-infos">
-      <h2><%= dish.name %></h2>
-      <h2><%= dish.price %> € </h2>
+      <h2><%= dish.name %> / <%= dish.price %> €</h2>
       <p><%= dish.description %></p>
     </div>
     <%= link_to '+', visit_orders_path(@visit, dish_id: dish.id), method: :POST ,class: "btn-ghost"%>
@@ -139,7 +117,7 @@
 <% end %>
 
 <% unless @pastas.empty? %>
-  <div style='padding: 16px 0 0 0'><h3>Pasta</h3></div>
+  <div style='padding: 16px 0 0 0'><h3 style="font-size: 20px; font-weight: bold; padding-left: 14px">Pasta</h3></div>
 <% end %>
 <% @pastas.each do |dish| %>
   <div class="card-dish" style='margin-top: 16px'>
@@ -149,8 +127,7 @@
       <img src="https://images.unsplash.com/photo-1566935367576-6e0e852215d1?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80" />
     <% end %>
     <div class="card-dish-infos">
-      <h2><%= dish.name %></h2>
-      <h2><%= dish.price %> € </h2>
+      <h2><%= dish.name %> / <%= dish.price %> €</h2>
       <p><%= dish.description %></p>
     </div>
     <%= link_to '+', visit_orders_path(@visit, dish_id: dish.id), method: :POST ,class: "btn-ghost"%>
@@ -158,7 +135,7 @@
 <% end %>
 
 <% unless @veggies.empty? %>
-  <div style='padding: 16px 0 0 0'><h3>Vegetarian</h3></div>
+  <div style='padding: 16px 0 0 0'><h3 style="font-size: 20px; font-weight: bold; padding-left: 14px">Vegetarian</h3></div>
 <% end %>
 <% @veggies.each do |dish| %>
   <div class="card-dish" style='margin-top: 16px'>
@@ -168,8 +145,7 @@
       <img src="https://images.unsplash.com/photo-1566935367576-6e0e852215d1?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80" />
     <% end %>
     <div class="card-dish-infos">
-      <h2><%= dish.name %></h2>
-      <h2><%= dish.price %> € </h2>
+      <h2><%= dish.name %> / <%= dish.price %> €</h2>
       <p><%= dish.description %></p>
     </div>
     <%= link_to '+', visit_orders_path(@visit, dish_id: dish.id), method: :POST ,class: "btn-ghost"%>
@@ -177,7 +153,7 @@
 <% end %>
 
 <% unless @vegans.empty? %>
-  <div style='padding: 16px 0 0 0'><h3>Vegan</h3></div>
+  <div style='padding: 16px 0 0 0'><h3 style="font-size: 20px; font-weight: bold; padding-left: 14px">Vegan</h3></div>
 <% end %>
 <% @vegans.each do |dish| %>
   <div class="card-dish" style='margin-top: 16px'>
@@ -187,8 +163,7 @@
       <img src="https://images.unsplash.com/photo-1566935367576-6e0e852215d1?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80" />
     <% end %>
     <div class="card-dish-infos">
-      <h2><%= dish.name %></h2>
-      <h2><%= dish.price %> € </h2>
+      <h2><%= dish.name %> / <%= dish.price %> €</h2>
       <p><%= dish.description %></p>
     </div>
     <%= link_to '+', visit_orders_path(@visit, dish_id: dish.id), method: :POST ,class: "btn-ghost"%>
@@ -196,7 +171,7 @@
 <% end %>
 
 <% unless @desserts.empty? %>
-  <div style='padding: 16px 0 0 0'><h3>Desserts</h3></div>
+  <div style='padding: 16px 0 0 0'><h3 style="font-size: 20px; font-weight: bold; padding-left: 14px">Desserts</h3></div>
 <% end %>
 <% @desserts.each do |dish| %>
     <div class="card-dish" style='margin-top: 16px'>
@@ -206,8 +181,7 @@
       <img src="https://images.unsplash.com/photo-1566935367576-6e0e852215d1?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80" />
     <% end %>
     <div class="card-dish-infos">
-      <h2><%= dish.name %></h2>
-      <h2><%= dish.price %> € </h2>
+      <h2><%= dish.name %> / <%= dish.price %> €</h2>
       <p><%= dish.description %></p>
     </div>
     <%= link_to '+', visit_orders_path(@visit, dish_id: dish.id), method: :POST ,class: "btn-ghost"%>
@@ -215,7 +189,7 @@
 <% end %>
 
 <% unless @beverages.empty? %>
-  <div style='padding: 16px 0 0 0'><h3>Beverages</h3></div>
+  <div style='padding: 16px 0 0 0'><h3 style="font-size: 20px; font-weight: bold; padding-left: 14px">Beverages</h3></div>
 <% end %>
 <% @beverages.each do |dish| %>
     <div class="card-dish" style='margin-top: 16px'>
@@ -225,8 +199,7 @@
       <img src="https://images.unsplash.com/photo-1566935367576-6e0e852215d1?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80" />
     <% end %>
     <div class="card-dish-infos">
-      <h2><%= dish.name %></h2>
-      <h2><%= dish.price %> € </h2>
+      <h2><%= dish.name %> / <%= dish.price %> €</h2>
       <p><%= dish.description %></p>
     </div>
     <%= link_to '+', visit_orders_path(@visit, dish_id: dish.id), method: :POST ,class: "btn-ghost"%>
@@ -234,7 +207,7 @@
 <% end %>
 
 <% unless @beers.empty? %>
-  <div style='padding: 16px 0 0 0'><h3>Beers</h3></div>
+  <div style='padding: 16px 0 0 0'><h3 style="font-size: 20px; font-weight: bold; padding-left: 14px">Beers</h3></div>
 <% end %>
 <% @beers.each do |dish| %>
     <div class="card-dish" style='margin-top: 16px'>
@@ -244,8 +217,7 @@
       <img src="https://images.unsplash.com/photo-1566935367576-6e0e852215d1?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80" />
     <% end %>
     <div class="card-dish-infos">
-      <h2><%= dish.name %></h2>
-      <h2><%= dish.price %> € </h2>
+      <h2><%= dish.name %> / <%= dish.price %> €</h2>
       <p><%= dish.description %></p>
     </div>
     <%= link_to '+', visit_orders_path(@visit, dish_id: dish.id), method: :POST ,class: "btn-ghost"%>
@@ -253,7 +225,7 @@
 <% end %>
 
 <% unless @alc_bevs.empty? %>
-  <div style='padding: 16px 0 0 0'><h3>Alcoholic Beverages</h3></div>
+  <div style='padding: 16px 0 0 0'><h3 style="font-size: 20px; font-weight: bold; padding-left: 14px">Alcoholic Beverages</h3></div>
 <% end %>
 <% @alc_bevs.each do |dish| %>
     <div class="card-dish" style='margin-top: 16px'>
@@ -263,8 +235,7 @@
       <img src="https://images.unsplash.com/photo-1566935367576-6e0e852215d1?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80" />
     <% end %>
     <div class="card-dish-infos">
-      <h2><%= dish.name %></h2>
-      <h2><%= dish.price %> € </h2>
+      <h2><%= dish.name %> / <%= dish.price %> €</h2>
       <p><%= dish.description %></p>
     </div>
     <%= link_to '+', visit_orders_path(@visit, dish_id: dish.id), method: :POST ,class: "btn-ghost"%>
@@ -272,7 +243,7 @@
 <% end %>
 
 <% unless @hot_bevs.empty? %>
-  <div style='padding: 16px 0 0 0'><h3>Hot Beverages</h3></div>
+  <div style='padding: 16px 0 0 0'><h3 style="font-size: 20px; font-weight: bold; padding-left: 14px">Hot Beverages</h3></div>
 <% end %>
 <% @hot_bevs.each do |dish| %>
     <div class="card-dish" style='margin-top: 16px'>
@@ -282,8 +253,7 @@
       <img src="https://images.unsplash.com/photo-1566935367576-6e0e852215d1?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80" />
     <% end %>
     <div class="card-dish-infos">
-      <h2><%= dish.name %></h2>
-      <h2><%= dish.price %> € </h2>
+      <h2><%= dish.name %> / <%= dish.price %> €</h2>
       <p><%= dish.description %></p>
     </div>
     <%= link_to '+', visit_orders_path(@visit, dish_id: dish.id), method: :POST ,class: "btn-ghost"%>
