@@ -37,8 +37,10 @@ class VisitsController < ApplicationController
   end
 
   def update
-    @visit.update(visit_params)
-    redirect_to restaurant_path(@restaurant)
+    @visit = Visit.update(end_date: Time.now)
+    redirect_back fallback_loction: "#"
+    # @visit.update(visit_params)
+    # redirect_to restaurant_path(@restaurant)
     # This path should be updated with the checkout success page!
   end
 

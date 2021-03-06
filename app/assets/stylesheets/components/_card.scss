@@ -154,3 +154,59 @@
   padding: 16px;
   text-align: left;
 }
+
+
+.card-visit {
+  overflow: hidden;
+  height: 120px;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  align-content: space-between;
+  // position: relative;
+}
+
+.card-visit img {
+  height: 100%;
+  width: 30%;
+  object-fit: cover;
+}
+
+.card-visit h2 {
+  font-size: 14px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-visit p {
+  font-size: 14px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 8px;
+  overflow: hidden;
+   text-overflow: ellipsis;
+   display: -webkit-box;
+   line-height: 16px;     /* fallback */
+   max-height: 32px;      /* fallback */
+   -webkit-line-clamp: 2; /* number of lines to show */
+   -webkit-box-orient: vertical;
+}
+
+.card-visit .card-visit-infos {
+  width: 60%;
+  padding: 16px;
+  // display: flex;
+  // align-items: center;
+  // justify-content: space-between;
+}
+
+.card-visit .card-visit-infos .btn-ghost {
+  // position: absolute;
+  right: 16px;
+}
+
+
+
