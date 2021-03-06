@@ -468,5 +468,8 @@ puts "#{Review.count}/20 reviews were created."
 
 # FAKE VISIT FOR DEMO
 puts "Creating the demo visit"
-@fake_visit = Visit.create!(start_date: "2021-02-22 18:00:00 CET", end_date: "2021-02-22 21:00:00 CET", guests: 5, user: @second_user, table: @table_fifteen)
-puts "The demo visit #{@fake_visit} was created."
+@fake_visit = Visit.create!(start_date: "2021-02-22 18:00:00 CET", end_date: "2021-02-22 21:00:00 CET", guests: 5, user: @third_user, table: @table_fifteen )
+@fake_visit_two = Visit.create!(start_date: "2021-01-22 16:00:00 CET", end_date: "2021-01-22 20:00:00 CET", guests: 2, user: @third_user, table: @table_nine )
+@fake_visit_three = Visit.create!(start_date: "2021-03-02 19:00:00 CET", end_date: "2021-03-02 20:00:00 CET", guests: 5, user: @third_user, table: @table_one )
+@fake_visit_four = Visit.create!(start_date: "2021-01-06 15:15:00 CET", end_date: "2021-01-06 20:30:00 CET", guests: 4, user: @third_user, table: @table_four)
+
