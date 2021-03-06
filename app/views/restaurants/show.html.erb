@@ -12,7 +12,7 @@
   <div style='padding: 16px 0 0 0'><a name="starters"><h3 style="font-size: 20px; font-weight: bold; padding-left: 14px">Starters</h3></a></div>
 <% end %>
 <% @starters.each do |dish| %>
-  <div class="card-dish" style='margin-top: 16px'>
+  <div class="card-dish" id="dish_id_<%= dish.id %>" style='margin-top: 16px'>
     <% if dish.photo.attached? %>
       <%= cl_image_tag dish.photo.key, height: 300, width: 400, crop: :fill %>
     <% else %>

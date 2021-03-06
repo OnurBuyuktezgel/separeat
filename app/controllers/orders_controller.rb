@@ -24,9 +24,15 @@ class OrdersController < ApplicationController
     @order.visit = @visit
     @dish = Dish.find(params[:dish_id])
     @order.dish = @dish
+    @restaurant = @visit.table.restaurant
 
     if @order.save
-      redirect_back anchor: "dish-#{@dish.id}", fallback_location: "#"
+      # if current_page?(controller: 'restaurants', action: 'show')
+      #   redirect_to restaurant_path(@restaurant, anchor: "dish_id_#{@dish.id}")
+      # else
+      #   redirect_to visit_orders_path(@visit)
+      # end
+      redirect_back anchor: "dish_id_#{@dish.id}", fallback_location: "#"
     else
       render 'restaurants/show'
     end
