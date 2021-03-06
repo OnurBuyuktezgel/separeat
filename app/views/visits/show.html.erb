@@ -13,13 +13,13 @@
 <h5 id="tip-header">Would you like to add a tip?</h5>
 
 <div class="tip-buttons">
-  <div style="margin-right: 4px"> <%= link_to "5 % ", "#", class: "btn-tip" %> </div>
-  <div> <%= link_to "10 %", "#", class: "btn-tip" %> </div>
+  <div style="margin-right: 4px"> <%= link_to "5 %", "#", remote: true, class: "btn-tip", id: "tip-five" %> </div>
+  <div> <%= link_to "10 %", "#", remote: true, class: "btn-tip", id: "tip-ten" %> </div>
 </div>
 
 <div class="orders-list" style="margin: 32px 0">
   <ul>
-    <div id="total-checkout"><li id="total-checkout">Total</li><li id="total-checkout"> <%= @total %> €</li></div>
+    <div id="total-checkout"><li id="total-checkout">Total</li><li id="total-checkout"> <span id="total-amount"><%= @total %></span> €</li></div>
   </ul>
 </div>
 

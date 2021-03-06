@@ -37,4 +37,3 @@ const codeScanner = () => {
   }
 
 export { codeScanner };
-
