@@ -36,9 +36,10 @@
   color: $almost-black;
   opacity: 0.6;
   background: $dark-yellow;
-  padding: 8px 24px;
+  padding: 8px 16px;
   border-radius: 15px;
   transition: background 0.3s ease;
+  font-size: 14px;
 }
 
 .btn-flat-secondary:hover {

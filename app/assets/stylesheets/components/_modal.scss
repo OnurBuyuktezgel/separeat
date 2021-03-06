@@ -1,0 +1,24 @@
+.modal-header {
+  border-bottom: none;
+  padding: 2px 8px 0 0;
+}
+
+.modal-body {
+  text-align: center;
+  padding: 0px 8px;
+  h1 {
+    padding-bottom: 1rem;
+    font-size: 60px;
+  }
+}
+
+.modal-footer {
+  border-top: none;
+  padding: 1rem;
+  justify-content: center;
+}
+
+.modal-content {
+  border-radius: 15px;
+  border: none;
+}

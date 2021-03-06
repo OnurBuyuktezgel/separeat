@@ -23,7 +23,9 @@
   </ul>
 </div>
 
-<div class="align-btn-pay">  <%= link_to 'Pay', '#',  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#payingModalCenter', class: 'btn-pay'} %> </div>
+<!-- <div class="align-btn-pay">  <%#= link_to 'Pay', visit_path {:method => 'patch', :remote => true, 'data-toggle' =>  "modal", 'data-target' => '#payingModalCenter', class: 'btn-pay'} %> </div>
+ -->
+ <div class="align-btn-pay">  <%= link_to 'Pay', visit_path, method: :patch, remote: true, 'data-toggle' => "modal", 'data-target' => '#payingModalCenter', class: 'btn-pay' %> </div>
 
 <!-- Modal -->
 <div class="modal fade" id="payingModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
