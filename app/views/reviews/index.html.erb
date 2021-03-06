@@ -1,11 +1,10 @@
-<div class="container">
 <div class="card-restaurant">
   <% if @restaurant.photo.attached? %>
     <%= cl_image_tag @restaurant.photo.key, height: 300, width: 400, crop: :fill %>
   <% else %>
     <img src="https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1500&q=80" />
   <% end %>
-  <div class="card-restaurant-infos">
+  <div class="card-restaurant-infos" style="margin: 2px 0 12px 0">
     <div><h2><%= @restaurant.name %><small> (<%= @restaurant.address %>) </small></h2></div>
   </div>
 </div>
@@ -14,33 +13,25 @@
   <% unless @restaurant.user == current_user %>
   <%= simple_form_for [ @restaurant, @review ],method: :POST, remote: true  do |f| %>
     <%= f.input :content, as: :text, label: 'How was your Meal?',error: 'Minimum 5 characters' %>
-     <%= f.input :rating, as: :integer, label: 'Rate us between 1-5?' %>
+    <%= f.input :rating, as: :integer, label: 'Rate us between 1-5?' %>
   <div class="align-button">  <%= f.button :submit, 'Leave a Review', class: 'btn btn-flat' %></div>
   <% end %>
   <% end %>
 </div>
 
-  <div class="list" style="margin-bottom: 16px; margin-left: 32px"><h3><%= pluralize @restaurant.reviews.size, "review"%></h3></div>
+<div class="list" style="margin-bottom: 16px"><h3 style="font-size: 24px; font-weight: bold; padding: 8px"><%= pluralize @restaurant.reviews.size, "review"%></h3></div>
 
-    <% if @restaurant.reviews.blank? && @restaurant.user != current_user %>
-      Be the first to leave a review for <%= @restaurant.name %>
-    <% else %>
-
+<% if @restaurant.reviews.blank? && @restaurant.user != current_user %>
+  Be the first to leave a review for <%= @restaurant.name %>
+<% else %>
   <% @restaurant.reviews.order('created_at DESC').each do |review| %>
-   <div  class="orders-list" style=" border-radius: 16px;">   <p>Posted by: <strong><%= review.user.first_name%></strong> on <%= review.created_at.strftime("%B %d %Y, %l:%M%P") %></p>
-        <p> <%= review.content %></p>
-
-        <% review.rating.times do %>
-          <i class="fa fa-star" style="color: #ffcf3e"></i>
-        <% end %>
-        <% (5 - review.rating).times do %>
-
-         <i class="fa fa-star-o"></i>
-
-
-        <% end %></div>
+   <div  class="orders-list" style=" border-radius: 15px"> <p>Posted by: <strong><%= review.user.first_name%></strong> on <%= review.created_at.strftime("%B %d %Y, %l:%M%P") %></p>
+      <p> <%= review.content %></p>
+      <% review.rating.times do %>
+        <i class="fa fa-star" style="color: #ffcf3e"></i>
       <% end %>
-    <% end %>
-</div>
-
-
+      <% (5 - review.rating).times do %>
+        <i class="fa fa-star-o"></i>
+      <% end %></div>
+  <% end %>
+<% end %>

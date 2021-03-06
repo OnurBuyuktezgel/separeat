@@ -1,6 +1,7 @@
 .order-header {
   text-align: center;
-  font-size: 32px;
+  font-size: 24px;
+  font-weight: bold;
   padding: 16px;
 }
 
@@ -8,13 +9,13 @@
   background-color: white;
   border-radius: 15px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  padding: 16px 40px 2px 40px;
+  padding: 8px 16px 1px 16px;
   margin-bottom: 16px;
   ul {
     list-style: none;
     padding-left: 0;
     li {
-      font-size: 18px;
+      font-size: 14px;
     }
   }
 }
@@ -39,15 +40,15 @@
 }
 
 .align-button #first {
-  padding: 8px 110px;
+  padding: 8px 115px;
 }
 
 .align-button #second {
-  padding: 8px 100px;
+  padding: 8px 106px;
 }
 
-.align-button .btn-flat-secondary {
-  padding: 8px 116px;
+.align-button #third {
+  padding: 8px 115px;
 }
 
 // Modal

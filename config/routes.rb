@@ -18,8 +18,7 @@ Rails.application.routes.draw do
 
   resources :visits, only: [:index, :show, :new, :create, :update] do
     resources :orders, only: [:index, :show, :new, :create, :edit, :update]
-    post 'orders/:id/add' => "orders#add_quantity", as: "order_add"
-    post 'orders/:id/reduce' => "orders#reduce_quantity", as: "order_reduce"
+    post 'new-order', to: 'orders#add_order', as: 'new-order'
     # post 'orders' => "orders#create"
     # get 'orders/:id' => "orders#show", as: "order"
     # delete 'orders/:id' => "orders#destroy"

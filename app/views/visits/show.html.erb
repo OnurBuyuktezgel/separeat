@@ -1,7 +1,7 @@
 <h2 class="order-header">Checkout</h2>
 
 <div class="orders-list">
-  <h5>Pay with</h5>
+  <p id="pay-with">Pay with</p>
   <ul>
     <li><input id="confirm" type="checkbox" /><label for="confirm">&nbsp;&nbsp;PayPal</label></li>
     <li><input id="confirm" type="checkbox" /><label for="confirm">&nbsp;&nbsp;Credit Card</label></li>
@@ -17,13 +17,13 @@
   <div> <%= link_to "10 %", "#", remote: true, class: "btn-tip", id: "tip-ten" %> </div>
 </div>
 
-<div class="orders-list" style="margin: 40px 0">
+<div class="orders-list" style="margin: 32px 0">
   <ul>
-    <div class="order-total"><li>Total</li><li><span id="total-amount"><%= @total %></span> €</li></div>
+    <div id="total-checkout"><li id="total-checkout">Total</li><li id="total-checkout"> <span id="total-amount"><%= @total %></span> €</li></div>
   </ul>
 </div>
 
-<div class="align-button">  <%= link_to 'Pay', '#',  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#payingModalCenter', class: 'btn-flat', id: 'second'} %> </div>
+<div class="align-btn-pay">  <%= link_to 'Pay', '#',  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#payingModalCenter', class: 'btn-pay'} %> </div>
 
 <!-- Modal -->
 <div class="modal fade" id="payingModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">

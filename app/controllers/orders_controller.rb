@@ -1,6 +1,6 @@
 class OrdersController < ApplicationController
   before_action :set_order, only: [:show, :destroy, :add_quantity, :reduce_quantity]
-  before_action :set_visit, only: [:index, :show, :new, :create, :edit, :update, :add_quantity, :reduce_quantity]
+  before_action :set_visit, only: [:index, :show, :new, :create, :edit, :update, :add_order]
 
   def index
     @orders = policy_scope(Order).order(created_at: :desc)
@@ -24,9 +24,10 @@ class OrdersController < ApplicationController
     @order.visit = @visit
     @dish = Dish.find(params[:dish_id])
     @order.dish = @dish
+    @restaurant = @visit.table.restaurant
 
     if @order.save
-      redirect_back anchor: "dish-#{@dish.id}", fallback_location: "#"
+      redirect_to visit_orders_path(@visit)
     else
       render 'restaurants/show'
     end
@@ -45,6 +46,20 @@ class OrdersController < ApplicationController
     @visit = @order.visit
     @order.destroy
     redirect_to visit_orders_path(@visit)
+  end
+
+  def add_order
+    @order = Order.new
+    authorize @order
+    @order.visit = @visit
+    @dish = Dish.find(params[:dish_id])
+    @order.dish = @dish
+    @restaurant = @visit.table.restaurant
+    if @order.save
+      redirect_to restaurant_path(@restaurant, anchor: "dish_id_#{@dish.id}")
+    else
+      render 'restaurants/show'
+    end
   end
 
   private
