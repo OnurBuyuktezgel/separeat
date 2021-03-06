@@ -3,14 +3,21 @@
   width: 16px;
 }
 
+#pay-with {
+  font-size: 18px;
+  font-weight: bold;
+}
+
 #tip-header {
+  font-size: 18px;
+  font-weight: bold;
   text-align: center;
-  padding: 16px;
+  padding: 12px;
 }
 
 .tip-buttons {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
 }
 
 .btn-tip {
@@ -29,17 +36,30 @@
   text-decoration: none;
 }
 
+#total-checkout {
+  font-size: 18px;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.align-btn-pay {
+  margin: 26px 0;
+  text-align: center;
+}
+
 .btn-pay {
   color: $almost-black;
   background: $dark-yellow;
-  padding: 8px 140px;
+  padding: 8px 150px;
   border-radius: 15px;
   transition: background 0.3s ease;
 }
 
 .btn-pay:hover {
   background-color: white;
-  padding: 6px 137px;
+  padding: 6px 147px;
   border: 3px solid $dark-yellow;
   color: $almost-black;
   text-decoration: none;
