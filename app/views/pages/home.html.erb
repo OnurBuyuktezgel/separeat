@@ -6,15 +6,10 @@
       </h3>
       <ul class="navbar-nav mr-auto text-center">
         <li class="nav-item">
-          <% @restaurants.each do |restaurant| %>
-            <%= link_to "Scan QR code", restaurant_path(restaurant), class: "btn btn-flat btn-home-1" %>
-          <% end %>
+            <%= link_to "Scan QR code", new_visit_path, class: "btn btn-flat btn-navbar" %>
         </li>
         <li class="nav-item">
-          <%= link_to "Enter code manually", "#", class: "btn btn-flat btn-home-2" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "Find restaurants", restaurants_path, class: "btn btn-flat btn-home-3" %>
+          <%= link_to "Find restaurants", restaurants_path, class: "btn btn-flat-secondary btn-navbar" %>
         </li>
       </ul>
     </div>
