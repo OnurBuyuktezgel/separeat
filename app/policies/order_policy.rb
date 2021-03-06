@@ -17,6 +17,10 @@ class OrderPolicy < ApplicationPolicy
     true
   end
 
+  def add_order?
+    true
+  end
+
   private
 
   def user_is_owner_or_admin?

@@ -25,7 +25,7 @@
 
     <div data-controller="order">
       <div data-target="order.content">
-        <%= link_to visit_orders_path(@visit, dish_id: dish.id), method: :POST, remote: true do %>
+        <%= link_to visit_new_order_path(@visit, dish_id: dish.id), method: :POST, remote: true do %>
           <button class="btn-ghost added" data-action="click->order#sayAdded">+</button>
         <% end %>
       </div>

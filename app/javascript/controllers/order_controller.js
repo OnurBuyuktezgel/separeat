@@ -10,7 +10,8 @@ export default class extends Controller {
   }
 
   sayAdded() {
-    // setTimeout(function() {this.contentTarget.innerHTML = "Added ✔";}, 3000);
-    this.contentTarget.innerHTML = "Added ✔";
+    this.contentTarget.innerHTML = `<p style="font-size: 32px; color: #ffcf3e"><i class="fas fa-check-circle"></i></p>`;
+    document
+    // setTimeout(function() {this.contentTarget.innerHTML = `<button class="btn-ghost added" data-action="click->order#sayAdded">+</button>`}, 3000);
   }
 }
