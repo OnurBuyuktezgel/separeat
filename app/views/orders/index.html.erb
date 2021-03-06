@@ -9,7 +9,7 @@
             <%= link_to '–', order_path((Order.where(dish_id: array[0], visit_id: @visit)).first), method: :DELETE, class: "btn btn-orders"  %>
             <%= link_to '+', visit_orders_path(@visit, dish_id: array[0]), method: :POST, class: "btn btn-orders" %>
           </div>
-          <%= array[1] %> <%= array[0][:name] %> (à <%= array[0][:price] %> €)
+          <%= array[1] %> <%= array[0][:name] %> (<%= array[0][:price] %> €)
         </li>
         <li>
           <%= (array[1])*(array[0][:price]) %> €
@@ -67,7 +67,7 @@
       </div>
       <div class="modal-body">
         <h1><i class="far fa-check-circle"></i></h1>
-        <h5>Someone will be at your table in a moment.</h5>
+        <h5>Someone will be at your table<br>in a moment.</h5>
       </div>
       <div class="modal-footer">
       </div>

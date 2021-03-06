@@ -25,13 +25,14 @@
   Be the first to leave a review for <%= @restaurant.name %>
 <% else %>
   <% @restaurant.reviews.order('created_at DESC').each do |review| %>
-   <div  class="orders-list" style=" border-radius: 15px"> <p>Posted by: <strong><%= review.user.first_name%></strong> on <%= review.created_at.strftime("%B %d %Y, %l:%M%P") %></p>
+    <div class="orders-list" style="border-radius: 15px; padding-bottom: 16px"> <p>Posted by: <strong><%= review.user.first_name%></strong> on <%= review.created_at.strftime("%B %d %Y, %l:%M%P") %></p>
       <p> <%= review.content %></p>
       <% review.rating.times do %>
         <i class="fa fa-star" style="color: #ffcf3e"></i>
       <% end %>
       <% (5 - review.rating).times do %>
         <i class="fa fa-star-o"></i>
-      <% end %></div>
+      <% end %>
+    </div>
   <% end %>
 <% end %>
