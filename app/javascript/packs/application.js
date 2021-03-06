@@ -25,16 +25,16 @@ require("channels")
 
 // External imports
 import "bootstrap";
+import Rails from '@rails/ujs';
+
+// Internal imports, e.g:
+// import { initSelect2 } from '../components/init_select2';
 import { initSlick } from '../plugins/init_slick';
 import { initMapbox } from '../plugins/init_mapbox';
 import { initAutocomplete } from '../plugins/init_autocomplete';
 import { loadDynamicBannerText } from '../components/banner';
+import { tipBox } from '../components/tip';
 import { codeScanner } from '../plugins/init_zxing';
-import Rails from '@rails/ujs';
-
-
-// Internal imports, e.g:
-// import { initSelect2 } from '../components/init_select2';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
@@ -44,7 +44,7 @@ document.addEventListener('turbolinks:load', () => {
   loadDynamicBannerText();
   initSlick();
   codeScanner();
-  Rails.start();
+  tipBox();
 });
 
 

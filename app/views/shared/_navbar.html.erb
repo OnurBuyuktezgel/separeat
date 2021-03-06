@@ -2,7 +2,9 @@
   <%= link_to visit_orders_path(Visit.last), class: "navbar-brand" do %>
     <div class="counter" data-controller="counter">
       <i class="fas fa-shopping-bag"></i>
-      <span style="color:white" data-counter-target="count">(<%= @order_count %>)</span>
+      <% unless @order_count == 0 %>
+        <span style="color:white" data-counter-target="count">(<%= @order_count %>)</span>
+      <% end %>
     </div>
   <% end %>
 
@@ -21,7 +23,9 @@
           <% end %>
           <div class="card-product-infos">
             <h2><%= current_user.first_name %> <%= current_user.last_name %></h2>
-            <p>@Toni's Burgers</p>
+            <% unless @restaurant.nil? %>
+              <p><%= @restaurant.name %></p>
+            <% end %>
           </div>
         </div>
         <li class="nav-item">
