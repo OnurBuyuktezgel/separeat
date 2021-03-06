@@ -77,3 +77,31 @@
 .modal-footer {
   justify-content: center;
 }
+
+.btn-group {
+  :first-child {
+    border-right: 1px;
+  }
+}
+
+.btn-group {
+  margin-right: 10px;
+}
+
+.btn-orders {
+  color: $almost-black;
+  font-size: 14px;
+  font-weight: bold;
+  border: 2px solid $almost-black;
+  padding: 0 6px;
+  border-radius: 10px;
+  transition: background 0.3s ease;
+  display: inline-block;
+}
+
+.btn-orders:hover {
+  text-decoration: none;
+  color: $almost-black;
+  background-color: $almost-black;
+  color: white;
+}

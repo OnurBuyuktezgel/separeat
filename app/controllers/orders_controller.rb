@@ -26,7 +26,7 @@ class OrdersController < ApplicationController
     @order.dish = @dish
 
     if @order.save
-      redirect_to visit_orders_path(@visit, @order)
+      redirect_back anchor: "dish-#{@dish.id}", fallback_location: "#"
     else
       render 'restaurants/show'
     end
