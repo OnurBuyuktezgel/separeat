@@ -9,25 +9,29 @@
   </div>
 </div>
 
-
  <div  class="orders-list" style="margin-top: 32px">
   <% unless @restaurant.user == current_user %>
-  <%= simple_form_for [ @restaurant, @review ],method: :POST, remote: true  do |f| %>
-  <%= f.input :content, as: :text, label: 'How was your Meal?',error: 'Minimum 5 characters' %>
-
-  <fieldset class="rating">
-    <%=f.radio_button :rating, 5, :id => "star5" %><label  for="star5" >5 Stars</label>
-    <%=f.radio_button :rating, 4, :id => "star4" %> <label for="star4" >4 Stars</label>
-    <%=f.radio_button :rating, 3, :id => "star3" %> <label for="star3" >3 Stars</label>
-    <%=f.radio_button :rating, 2, :id => "star2" %> <label for="star2" >2 Stars</label>
-    <%=f.radio_button :rating, 1, :id => "star1" %> <label for="star1" >1 Stars</label>
-  </fieldset>
-
-  <div class="align-button">  <%= f.button :submit, 'Leave a Review', class: 'btn btn-flat' %></div>
+    <%= simple_form_for [ @restaurant, @review ],method: :POST, remote: true  do |f| %>
+  <div>
+    <%= f.input :content, as: :text, label: 'How was your Meal?',error: 'Minimum 5 characters' %>
+  </div>
+  <div style="display: flex; flex-direction: column; align-items: center">
+    <div>
+      <fieldset class="rating">
+        <%=f.radio_button :rating, 5, :id => "star5" %><label  for="star5" >5 Stars</label>
+        <%=f.radio_button :rating, 4, :id => "star4" %> <label for="star4" >4 Stars</label>
+        <%=f.radio_button :rating, 3, :id => "star3" %> <label for="star3" >3 Stars</label>
+        <%=f.radio_button :rating, 2, :id => "star2" %> <label for="star2" >2 Stars</label>
+        <%=f.radio_button :rating, 1, :id => "star1" %> <label for="star1" >1 Stars</label>
+      </fieldset>
+    </div>
+    <div>
+      <div class="align-button">  <%= f.button :submit, 'Leave a Review', class: 'btn btn-flat' %></div>
+    </div>
+  </div>
   <% end %>
   <% end %>
 </div>
-
 
 <div class="list" style="margin-bottom: 16px"><h3 style="font-size: 24px; font-weight: bold; padding: 8px"><%= pluralize @restaurant.reviews.size, "review"%></h3></div>
 
