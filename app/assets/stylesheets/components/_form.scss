@@ -26,3 +26,84 @@
 
 .form-check-label {
 }
+
+.txt-center {
+    text-align: center;
+}
+.hide {
+    display: none;
+}
+
+.clear {
+    float: none;
+    clear: both;
+}
+
+/* Rating css  */
+
+  .rating {
+float:left;
+text-align: center;
+position: relative;
+}
+
+    .rating:not(:checked) > input {
+position:absolute;
+ top:-9999px;
+ clip:rect(0,0,0,0);
+ }
+
+
+ /* It map buttons to Numbers */
+
+
+  .rating:not(:checked) > label {
+float:right; width:1em; padding:0 .1em;
+overflow:hidden;
+white-space:nowrap;
+cursor:pointer;
+font-size:140%;
+line-height:1.2;
+color:$dark-grey;
+
+ }
+
+/* Replaces numbers with stars */
+
+
+.rating:not(:checked) > label:before {
+ content: '★';
+}
+
+
+.rating > input:checked ~ label {
+ color: #ffcf3e;
+ }
+
+
+/* It shadows the star button to golden colour when you move the curser on star buttons */
+
+
+   .rating:not(:checked) > label:hover, .rating:not(:checked) > label:hover ~ label {
+color: #ffcf3e;
+}
+
+    .rating > input:checked + label:hover, .rating > input:checked + label:hover ~ label, .rating > input:checked ~ label:hover, .rating > input:checked ~ label:hover ~ label, .rating > label:hover ~ input:checked ~ label {
+ color: #ffcf3e;
+}
+
+
+/* The input is radio button on click to buttton will move cursor to different position will remain stay on the same position */
+
+
+.rating:not(:checked) > input {
+display: none;
+}
+
+
+
+
+
+
+
+

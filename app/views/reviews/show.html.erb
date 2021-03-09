@@ -9,25 +9,17 @@
   </div>
 </div>
 
-
  <div  class="orders-list" style="margin-top: 32px">
   <% unless @restaurant.user == current_user %>
   <%= simple_form_for [ @restaurant, @review ],method: :POST, remote: true  do |f| %>
-  <%= f.input :content, as: :text, label: 'How was your Meal?',error: 'Minimum 5 characters' %>
-
-  <fieldset class="rating">
-    <%=f.radio_button :rating, 5, :id => "star5" %><label  for="star5" >5 Stars</label>
-    <%=f.radio_button :rating, 4, :id => "star4" %> <label for="star4" >4 Stars</label>
-    <%=f.radio_button :rating, 3, :id => "star3" %> <label for="star3" >3 Stars</label>
-    <%=f.radio_button :rating, 2, :id => "star2" %> <label for="star2" >2 Stars</label>
-    <%=f.radio_button :rating, 1, :id => "star1" %> <label for="star1" >1 Stars</label>
-  </fieldset>
+    <%= f.input :content, as: :text, label: 'How was your Meal?',error: 'Minimum 5 characters' %>
+    <%#= f.input :rating, as: :integer, label: 'Rate us between 1-5?' %>
+    <%= f.input :rating, collection: 1..5, as: :radio_buttons, label: 'Rate us between 1-5?'%>
 
   <div class="align-button">  <%= f.button :submit, 'Leave a Review', class: 'btn btn-flat' %></div>
   <% end %>
   <% end %>
 </div>
-
 
 <div class="list" style="margin-bottom: 16px"><h3 style="font-size: 24px; font-weight: bold; padding: 8px"><%= pluralize @restaurant.reviews.size, "review"%></h3></div>
 
@@ -35,16 +27,29 @@
   Be the first to leave a review for <%= @restaurant.name %>
 <% else %>
   <% @restaurant.reviews.order('created_at DESC').each do |review| %>
-    <div class="orders-list" style="border-radius: 15px; padding-bottom: 16px"> <p>Posted by: <strong><%= review.user.first_name%></strong> on <%= review.created_at.strftime("%B %d %Y, %l:%M%P") %></p>
+   <div  class="orders-list" style=" border-radius: 15px"> <p>Posted by: <strong><%= review.user.first_name%></strong> on <%= review.created_at.strftime("%B %d %Y, %l:%M%P") %></p>
       <p> <%= review.content %></p>
       <% review.rating.times do %>
-
-      <label for="star5" style="color: #ffcf3e">★</label>
-
+        <i class="fa fa-star" style="color: #ffcf3e"></i>
       <% end %>
       <% (5 - review.rating).times do %>
         <i class="fa fa-star-o"></i>
-      <% end %>
-    </div>
+      <% end %></div>
   <% end %>
 <% end %>
+
+<div class="txt-center">
+        <div class="rating">
+            <input id="star5" name="star" type="radio" value="5" class="radio-btn hide" />
+            <label for="star5">☆</label>
+            <input id="star4" name="star" type="radio" value="4" class="radio-btn hide" />
+            <label for="star4">☆</label>
+            <input id="star3" name="star" type="radio" value="3" class="radio-btn hide" />
+            <label for="star3">☆</label>
+            <input id="star2" name="star" type="radio" value="2" class="radio-btn hide" />
+            <label for="star2">☆</label>
+            <input id="star1" name="star" type="radio" value="1" class="radio-btn hide" />
+            <label for="star1">☆</label>
+            <div class="clear"></div>
+        </div>
+</div>
