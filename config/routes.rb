@@ -14,8 +14,6 @@ Rails.application.routes.draw do
     end
   end
 
-  get 'qr-code-reader', to: 'qr_code_readers#index'
-
   resources :visits, only: [:index, :show, :new, :create, :update] do
     resources :orders, only: [:index, :show, :new, :create, :edit, :update]
     post 'new-order', to: 'orders#add_order', as: 'new-order'

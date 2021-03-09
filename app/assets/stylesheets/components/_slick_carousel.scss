@@ -6,7 +6,7 @@
 }
 
 .slick-prev::before, .slick-next::before {
-  color: #000;
+  color: #393e46;
 }
 
 .slick-next {
@@ -20,4 +20,8 @@
 .slick-slide {
     width: 50px;
     padding: 16px;
+  a {
+    text-decoration: none;
+  }
 }
+
