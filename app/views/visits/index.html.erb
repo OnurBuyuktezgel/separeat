@@ -11,14 +11,19 @@
       <% else %>
         <img src="https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1500&q=80" />
       <% end %>
-      <div class="card-visit-infos">
+      <div class="card-visit-infos" style='padding-top: 8px; padding-bottom: 8px'>
         <h2><%= visit.table.restaurant.name %><small> (<%= visit.table.restaurant.address %>) </small></h2>
-        <h2><small> Visited on: <%= visit.start_date.strftime("%b %d %Y, %l:%M%P") %> - <%= visit.end_date.strftime(" %l:%M%P") %><small></h2>
+        <h2><small> Visited on: <%= visit.start_date.strftime("%b %d %Y, %l:%M%P") %> - <%= visit.end_date.strftime(" %l:%M%P") %></small></h2>
         <div class="info" style='color: green'>
-          <h2><small> No incidents reported. <small></h2>
+          <h2><small> No incidents reported. </small></h2>
         </div>
       </div>
     </div>
   <% end %>
 <% end %>
 </div>
+
+
+
+
+
