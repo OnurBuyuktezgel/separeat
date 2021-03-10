@@ -4,7 +4,7 @@ const loadDynamicBannerText = () => {
   const banner = document.querySelector("#banner-typed-text");
   if (banner) {
     new Typed('#banner-typed-text', {
-      strings: ["Welcome to SeparEAT!", "Scan the QR code", "Order your food and pay online", "#Stay healthy!"],
+      strings: ["Welcome to SeparEAT!", "Scan the QR code", "Order your food", "Pay online", "#Stay healthy!"],
       typeSpeed: 75,
       loop: true,
       fadeOut: true,
