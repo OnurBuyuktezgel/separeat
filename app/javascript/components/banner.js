@@ -4,11 +4,15 @@ const loadDynamicBannerText = () => {
   const banner = document.querySelector("#banner-typed-text");
   if (banner) {
     new Typed('#banner-typed-text', {
-      strings: ["Let's go!", "Choose an option"],
-      typeSpeed: 90,
-      loop: true
+      strings: ["Welcome to SeparEAT!", "Scan the QR code", "Order your food and pay online", "#Stay healthy!"],
+      typeSpeed: 75,
+      loop: true,
+      fadeOut: true,
+      fadeOutClass: 'typed-fade-out',
+      fadeOutDelay: 500,
     });
   }
 }
 
 export { loadDynamicBannerText };
+
