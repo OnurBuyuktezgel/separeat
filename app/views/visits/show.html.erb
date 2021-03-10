@@ -19,7 +19,7 @@
 
 <div class="orders-list" style="margin: 32px 0">
   <ul>
-    <div id="total-checkout"><li id="total-checkout">Total</li><li id="total-checkout"> <span id="total-amount"><%= @total %></span> €</li></div>
+    <div id="total-checkout"><li id="total-checkout">Total</li><li id="total-checkout"> <span id="total-amount"><%= number_with_precision(@total, precision: 2) %></span> €</li></div>
   </ul>
 </div>
 

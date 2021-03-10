@@ -9,20 +9,22 @@
             <%= link_to '–', order_path((Order.where(dish_id: array[0], visit_id: @visit)).first), method: :DELETE, class: "btn btn-orders"  %>
             <%= link_to '+', visit_orders_path(@visit, dish_id: array[0]), method: :POST, class: "btn btn-orders" %>
           </div>
-          <%= array[1] %> <%= array[0][:name] %> (<%= array[0][:price] %> €)
+          <%= array[1] %> <%= array[0][:name] %> (<%= number_with_precision(array[0][:price], precision: 2) %> €)
         </li>
         <li>
-          <%= (array[1])*(array[0][:price]) %> €
+          <%= number_with_precision((array[1])*(array[0][:price]), precision: 2) %> €
         </li>
       </div>
-      <% @total += (array[1])*(array[0][:price]) %>
+      <% @total += (array[1])*array[0][:price] %>
     <% end %>
   </ul>
 </div>
 
+
+
 <div class="orders-list">
   <ul>
-    <div class="order-total"><li>Total</li><li><%= @total %> €</li></div>
+    <div class="order-total"><li>Total</li><li><%= number_with_precision(@total, precision: 2) %> €</li></div>
   </ul>
 </div>
 
