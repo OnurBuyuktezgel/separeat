@@ -1,12 +1,19 @@
 <div class="navbar navbar-light navbar-lewagon">
-  <%= link_to visit_orders_path(Visit.last), class: "navbar-brand" do %>
-    <div class="counter" data-controller="counter">
-      <i class="fas fa-shopping-bag"></i>
-      <% unless @order_count == 0 %>
-        <span style="color:white" data-counter-target="count">(<%= @order_count %>)</span>
+  <div class="counter" data-controller="counter">
+    <% if request.original_fullpath == root_path %>
+    <% elsif request.original_fullpath == visits_path %>
+      <%= link_to root_path, class: "navbar-brand" do %>
+        <%= image_tag "separeat_logo.svg", class: "logo", alt: "logo" %>
       <% end %>
-    </div>
-  <% end %>
+    <% else %>
+      <%= link_to visit_orders_path(Visit.last), class: "navbar-brand" do %>
+        <i class="fas fa-shopping-bag"></i>
+        <% unless @order_count == 0 %>
+        <span style="color:white" data-counter-target="count">(<%= @order_count %>)</span>
+        <% end %>
+      <% end %>
+    <% end %>
+  </div>
 
   <button class="navbar-dark navbar-toggler border-white rounded" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
