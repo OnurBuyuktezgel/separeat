@@ -38,6 +38,7 @@ class VisitsController < ApplicationController
 
   def update
     @visit.end_date = Time.now
+    @visit.orders.destroy_all
     @visit.save!
   end
 

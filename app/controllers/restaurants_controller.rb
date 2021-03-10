@@ -89,9 +89,9 @@ class RestaurantsController < ApplicationController
   def average_price
     set_restaurant
     if @restaurant.dishes.average(:price) <= 7
-      "€"
+      '<h2><span style="color:rgba(189, 195, 199, 0.8)">€€</span>€</h2>'.html_safe
     elsif @restaurant.dishes.average(:price) > 7 && @restaurant.dishes.average(:price) <= 15
-      "€€"
+      '<h2><span style="color:rgba(189, 195, 199, 0.8)">€</span>€€</h2>'.html_safe
     else
       "€€€"
     end
