@@ -14,7 +14,7 @@ class ReviewsController < ApplicationController
     @review.user = current_user
     authorize @review
     if @review.save
-      redirect_to restaurant_reviews_path(@restaurant, anchor: "review-#{@review.id}")
+      redirect_to restaurant_reviews_path(@restaurant, anchor: "review-first")
     else
       render :index
     end
