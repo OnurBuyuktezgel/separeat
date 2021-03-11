@@ -30,6 +30,7 @@ class VisitsController < ApplicationController
     @visit.table_id = @qr_data.to_i
     @restaurant = @visit.table.restaurant
     if @visit.save!
+      flash[:notice] = 'Successfully checked in'
       redirect_to restaurant_path(@restaurant)
     else
       render :new
