@@ -33,24 +33,21 @@
   <% end %>
 </div>
 
-<div class="list" style="margin-bottom: 16px"><h3 style="font-size: 24px; font-weight: bold; padding: 8px"><%= pluralize @restaurant.reviews.size, "review"%></h3></div>
-
+<a name="review-first">
+  <div class="list" style="margin-bottom: 16px"><h3 style="font-size: 24px; font-weight: bold; padding: 8px"><%= pluralize @restaurant.reviews.size, "review"%></h3></div>
+</a>
 <% if @restaurant.reviews.blank? && @restaurant.user != current_user %>
   Be the first to leave a review for <%= @restaurant.name %>
 <% else %>
   <% @restaurant.reviews.order('created_at DESC').each do |review| %>
-    <a name="review-<%= review.id %>">
-      <div class="orders-list" style="border-radius: 15px; padding-bottom: 16px"> <p>Posted by: <strong><%= review.user.first_name%></strong> on <%= review.created_at.strftime("%B %d %Y, %l:%M%P") %></p>
-        <p> <%= review.content %></p>
-        <% review.rating.times do %>
-
-        <label for="star5" style="color: #ffcf3e">★</label>
-
-        <% end %>
-        <% (5 - review.rating).times do %>
-          <i class="fa fa-star-o"></i>
-        <% end %>
-      </div>
-    </a>
+    <div class="orders-list" style="border-radius: 15px; padding-bottom: 16px"> <p>Posted by: <strong><%= review.user.first_name%></strong> on <%= review.created_at.strftime("%B %d %Y, %l:%M%P") %></p>
+      <p> <%= review.content %></p>
+      <% review.rating.times do %>
+      <label for="star5" style="color: #ffcf3e">★</label>
+      <% end %>
+      <% (5 - review.rating).times do %>
+        <i class="fa fa-star-o"></i>
+      <% end %>
+    </div>
   <% end %>
 <% end %>
