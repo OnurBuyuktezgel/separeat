@@ -9,7 +9,7 @@
 <%= render 'shared/categorycard' %>
 
 <% unless @starters.empty? %>
-  <div style='padding: 16px 0 0 0'><a name="Starters"><h3 name="Starters" style="font-size: 20px; font-weight: bold; padding-left: 14px">Starters</h3></a></div>
+  <div style='padding: 16px 0 0 0'><a name="Starters" class= "anchor"><h3 name="Starters" style="font-size: 20px; font-weight: bold; padding-left: 14px">Starters</h3></a></div>
 <% end %>
 <% @starters.sort_by! { |obj| obj.price }.each do |dish| %>
   <div class="card-dish" id="dish_id_<%= dish.id %>" style='margin-top: 16px'>
@@ -35,7 +35,7 @@
 <% end %>
 
 <% unless @soups.empty? %>
-  <div style='padding: 16px 0 0 0'><a name="Soups"><h3 style="font-size: 20px; font-weight: bold; padding-left: 14px">Soups</h3></a></div>
+  <div style='padding: 16px 0 0 0'><a name="Soups" class= "anchor"><h3 style="font-size: 20px; font-weight: bold; padding-left: 14px">Soups</h3></a></div>
 <% end %>
 <% @soups.sort_by! { |obj| obj.price }.each do |dish| %>
   <div class="card-dish" id="dish_id_<%= dish.id %>" style='margin-top: 16px'>
@@ -59,7 +59,7 @@
 <% end %>
 
 <% unless @salads.empty? %>
-  <div style='padding: 16px 0 0 0'><a name="Salads"><h3 style="font-size: 20px; font-weight: bold; padding-left: 14px">Salads</h3></a></div>
+  <div style='padding: 16px 0 0 0'><a name="Salads" class= "anchor"><h3 style="font-size: 20px; font-weight: bold; padding-left: 14px">Salads</h3></a></div>
 <% end %>
 <% @salads.sort_by! { |obj| obj.price }.each do |dish| %>
   <div class="card-dish" id="dish_id_<%= dish.id %>" style='margin-top: 16px'>
@@ -83,7 +83,7 @@
 <% end %>
 
 <% unless @main_dishes.empty? %>
-  <div style='padding: 16px 0 0 0'><a name="MainDishes"><h3 style="font-size: 20px; font-weight: bold; padding-left: 14px">Main Dishes</h3></a></div>
+  <div style='padding: 16px 0 0 0'><a name="MainDishes" class= "anchor"><h3 style="font-size: 20px; font-weight: bold; padding-left: 14px">Main Dishes</h3></a></div>
 <% end %>
 <% @main_dishes.sort_by! { |obj| obj.price }.each do |dish| %>
     <div class="card-dish" id="dish_id_<%= dish.id %>" style='margin-top: 16px'>
@@ -107,7 +107,7 @@
 <% end %>
 
 <% unless @meats.empty? %>
-  <div style='padding: 16px 0 0 0'><a name="Meat"><h3 style="font-size: 20px; font-weight: bold; padding-left: 14px">Meat</h3></a></div>
+  <div style='padding: 16px 0 0 0'><a name="Meat" class= "anchor"><h3 style="font-size: 20px; font-weight: bold; padding-left: 14px">Meat</h3></a></div>
 <% end %>
 <% @meats.sort_by! { |obj| obj.price }.each do |dish| %>
   <div class="card-dish" id="dish_id_<%= dish.id %>" style='margin-top: 16px'>
@@ -131,7 +131,7 @@
 <% end %>
 
 <% unless @fishes.empty? %>
-  <div style='padding: 16px 0 0 0'><a name="Fish"><h3 style="font-size: 20px; font-weight: bold; padding-left: 14px">Fish</h3></a></div>
+  <div style='padding: 16px 0 0 0'><a name="Fish" class= "anchor"><h3 style="font-size: 20px; font-weight: bold; padding-left: 14px">Fish</h3></a></div>
 <% end %>
 <% @fishes.sort_by! { |obj| obj.price }.each do |dish| %>
   <div class="card-dish" id="dish_id_<%= dish.id %>" style='margin-top: 16px'>
@@ -155,7 +155,7 @@
 <% end %>
 
 <% unless @pastas.empty? %>
-  <div style='padding: 16px 0 0 0'><a name="Pasta"><h3 style="font-size: 20px; font-weight: bold; padding-left: 14px">Pasta</h3></a></div>
+  <div style='padding: 16px 0 0 0'><a name="Pasta" class= "anchor"><h3 style="font-size: 20px; font-weight: bold; padding-left: 14px">Pasta</h3></a></div>
 <% end %>
 <% @pastas.sort_by! { |obj| obj.price }.each do |dish| %>
   <div class="card-dish" id="dish_id_<%= dish.id %>" style='margin-top: 16px'>
@@ -179,7 +179,7 @@
 <% end %>
 
 <% unless @veggies.empty? %>
-  <div style='padding: 16px 0 0 0'><a name="Vegetarian"><h3 style="font-size: 20px; font-weight: bold; padding-left: 14px">Vegetarian</h3></a></div>
+  <div style='padding: 16px 0 0 0'><a name="Vegetarian" class= "anchor"><h3 style="font-size: 20px; font-weight: bold; padding-left: 14px">Vegetarian</h3></a></div>
 <% end %>
 <% @veggies.sort_by! { |obj| obj.price }.each do |dish| %>
   <div class="card-dish" id="dish_id_<%= dish.id %>" style='margin-top: 16px'>
@@ -203,7 +203,7 @@
 <% end %>
 
 <% unless @vegans.empty? %>
-  <div style='padding: 16px 0 0 0'><a name="Vegan"><h3 style="font-size: 20px; font-weight: bold; padding-left: 14px">Vegan</h3></a></div>
+  <div style='padding: 16px 0 0 0'><a name="Vegan" class= "anchor"><h3 style="font-size: 20px; font-weight: bold; padding-left: 14px">Vegan</h3></a></div>
 <% end %>
 <% @vegans.sort_by! { |obj| obj.price }.each do |dish| %>
   <div class="card-dish" id="dish_id_<%= dish.id %>" style='margin-top: 16px'>
@@ -227,7 +227,7 @@
 <% end %>
 
 <% unless @desserts.empty? %>
-  <div style='padding: 16px 0 0 0'><a name="Desserts"><h3 style="font-size: 20px; font-weight: bold; padding-left: 14px">Desserts</h3></a></div>
+  <div style='padding: 16px 0 0 0'><a name="Desserts" class= "anchor"><h3 style="font-size: 20px; font-weight: bold; padding-left: 14px">Desserts</h3></a></div>
 <% end %>
 <% @desserts.sort_by! { |obj| obj.price }.each do |dish| %>
     <div class="card-dish" id="dish_id_<%= dish.id %>" style='margin-top: 16px'>
@@ -251,7 +251,7 @@
 <% end %>
 
 <% unless @beverages.empty? %>
-  <div style='padding: 16px 0 0 0'><a name="Beverages"><h3 style="font-size: 20px; font-weight: bold; padding-left: 14px">Beverages</h3></a></div>
+  <div style='padding: 16px 0 0 0'><a name="Beverages" class= "anchor"><h3 style="font-size: 20px; font-weight: bold; padding-left: 14px">Beverages</h3></a></div>
 <% end %>
 <% @beverages.sort_by! { |obj| obj.price }.each do |dish| %>
     <div class="card-dish" id="dish_id_<%= dish.id %>" style='margin-top: 16px'>
