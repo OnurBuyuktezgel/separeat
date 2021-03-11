@@ -13,7 +13,7 @@ const tipBox = () => {
 
     tipFive.addEventListener("click", (event) => {
       event.preventDefault();
-      const updatedTotal = Math.round((totalAmount * 1.05) * 100) / 100
+      const updatedTotal = (Math.round((totalAmount * 1.05) * 100) / 100).toFixed(2);
       document.querySelector("#total-amount").innerHTML = updatedTotal
 
       // Rails.ajax({
@@ -31,7 +31,7 @@ const tipBox = () => {
 
     tipTen.addEventListener("click", (event) => {
       event.preventDefault();
-      document.querySelector("#total-amount").innerHTML = Math.round((totalAmount * 1.1) * 100) / 100
+      document.querySelector("#total-amount").innerHTML = (Math.round((totalAmount * 1.1) * 100) / 100).toFixed(2);
     });
   }
 };
