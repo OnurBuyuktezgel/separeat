@@ -39,16 +39,18 @@
   Be the first to leave a review for <%= @restaurant.name %>
 <% else %>
   <% @restaurant.reviews.order('created_at DESC').each do |review| %>
-    <div class="orders-list" style="border-radius: 15px; padding-bottom: 16px"> <p>Posted by: <strong><%= review.user.first_name%></strong> on <%= review.created_at.strftime("%B %d %Y, %l:%M%P") %></p>
-      <p> <%= review.content %></p>
-      <% review.rating.times do %>
+    <a name="review-<%= review.id %>">
+      <div class="orders-list" style="border-radius: 15px; padding-bottom: 16px"> <p>Posted by: <strong><%= review.user.first_name%></strong> on <%= review.created_at.strftime("%B %d %Y, %l:%M%P") %></p>
+        <p> <%= review.content %></p>
+        <% review.rating.times do %>
 
-      <label for="star5" style="color: #ffcf3e">★</label>
+        <label for="star5" style="color: #ffcf3e">★</label>
 
-      <% end %>
-      <% (5 - review.rating).times do %>
-        <i class="fa fa-star-o"></i>
-      <% end %>
-    </div>
+        <% end %>
+        <% (5 - review.rating).times do %>
+          <i class="fa fa-star-o"></i>
+        <% end %>
+      </div>
+    </a>
   <% end %>
 <% end %>
