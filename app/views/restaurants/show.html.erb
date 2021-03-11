@@ -11,7 +11,7 @@
 <% unless @starters.empty? %>
   <div style='padding: 16px 0 0 0'><a name="Starters"><h3 name="Starters" style="font-size: 20px; font-weight: bold; padding-left: 14px">Starters</h3></a></div>
 <% end %>
-<% @starters.each do |dish| %>
+<% @starters.sort_by! { |obj| obj.price }.each do |dish| %>
   <div class="card-dish" id="dish_id_<%= dish.id %>" style='margin-top: 16px'>
     <% if dish.photo.attached? %>
       <%= cl_image_tag dish.photo.key, height: 300, width: 400, crop: :fill %>
@@ -37,7 +37,7 @@
 <% unless @soups.empty? %>
   <div style='padding: 16px 0 0 0'><a name="Soups"><h3 style="font-size: 20px; font-weight: bold; padding-left: 14px">Soups</h3></a></div>
 <% end %>
-<% @soups.each do |dish| %>
+<% @soups.sort_by! { |obj| obj.price }.each do |dish| %>
   <div class="card-dish" id="dish_id_<%= dish.id %>" style='margin-top: 16px'>
     <% if dish.photo.attached? %>
       <%= cl_image_tag dish.photo.key, height: 300, width: 400, crop: :fill %>
@@ -61,7 +61,7 @@
 <% unless @salads.empty? %>
   <div style='padding: 16px 0 0 0'><a name="Salads"><h3 style="font-size: 20px; font-weight: bold; padding-left: 14px">Salads</h3></a></div>
 <% end %>
-<% @salads.each do |dish| %>
+<% @salads.sort_by! { |obj| obj.price }.each do |dish| %>
   <div class="card-dish" id="dish_id_<%= dish.id %>" style='margin-top: 16px'>
     <% if dish.photo.attached? %>
       <%= cl_image_tag dish.photo.key, height: 300, width: 400, crop: :fill %>
@@ -85,7 +85,7 @@
 <% unless @main_dishes.empty? %>
   <div style='padding: 16px 0 0 0'><a name="MainDishes"><h3 style="font-size: 20px; font-weight: bold; padding-left: 14px">Main Dishes</h3></a></div>
 <% end %>
-<% @main_dishes.each do |dish| %>
+<% @main_dishes.sort_by! { |obj| obj.price }.each do |dish| %>
     <div class="card-dish" id="dish_id_<%= dish.id %>" style='margin-top: 16px'>
     <% if dish.photo.attached? %>
       <%= cl_image_tag dish.photo.key, height: 300, width: 400, crop: :fill %>
@@ -109,7 +109,7 @@
 <% unless @meats.empty? %>
   <div style='padding: 16px 0 0 0'><a name="Meat"><h3 style="font-size: 20px; font-weight: bold; padding-left: 14px">Meat</h3></a></div>
 <% end %>
-<% @meats.each do |dish| %>
+<% @meats.sort_by! { |obj| obj.price }.each do |dish| %>
   <div class="card-dish" id="dish_id_<%= dish.id %>" style='margin-top: 16px'>
     <% if dish.photo.attached? %>
       <%= cl_image_tag dish.photo.key, height: 300, width: 400, crop: :fill %>
@@ -133,7 +133,7 @@
 <% unless @fishes.empty? %>
   <div style='padding: 16px 0 0 0'><a name="Fish"><h3 style="font-size: 20px; font-weight: bold; padding-left: 14px">Fish</h3></a></div>
 <% end %>
-<% @fishes.each do |dish| %>
+<% @fishes.sort_by! { |obj| obj.price }.each do |dish| %>
   <div class="card-dish" id="dish_id_<%= dish.id %>" style='margin-top: 16px'>
     <% if dish.photo.attached? %>
       <%= cl_image_tag dish.photo.key, height: 300, width: 400, crop: :fill %>
@@ -157,7 +157,7 @@
 <% unless @pastas.empty? %>
   <div style='padding: 16px 0 0 0'><a name="Pasta"><h3 style="font-size: 20px; font-weight: bold; padding-left: 14px">Pasta</h3></a></div>
 <% end %>
-<% @pastas.each do |dish| %>
+<% @pastas.sort_by! { |obj| obj.price }.each do |dish| %>
   <div class="card-dish" id="dish_id_<%= dish.id %>" style='margin-top: 16px'>
     <% if dish.photo.attached? %>
       <%= cl_image_tag dish.photo.key, height: 300, width: 400, crop: :fill %>
@@ -181,7 +181,7 @@
 <% unless @veggies.empty? %>
   <div style='padding: 16px 0 0 0'><a name="Vegetarian"><h3 style="font-size: 20px; font-weight: bold; padding-left: 14px">Vegetarian</h3></a></div>
 <% end %>
-<% @veggies.each do |dish| %>
+<% @veggies.sort_by! { |obj| obj.price }.each do |dish| %>
   <div class="card-dish" id="dish_id_<%= dish.id %>" style='margin-top: 16px'>
     <% if dish.photo.attached? %>
       <%= cl_image_tag dish.photo.key, height: 300, width: 400, crop: :fill %>
@@ -205,7 +205,7 @@
 <% unless @vegans.empty? %>
   <div style='padding: 16px 0 0 0'><a name="Vegan"><h3 style="font-size: 20px; font-weight: bold; padding-left: 14px">Vegan</h3></a></div>
 <% end %>
-<% @vegans.each do |dish| %>
+<% @vegans.sort_by! { |obj| obj.price }.each do |dish| %>
   <div class="card-dish" id="dish_id_<%= dish.id %>" style='margin-top: 16px'>
     <% if dish.photo.attached? %>
       <%= cl_image_tag dish.photo.key, height: 300, width: 400, crop: :fill %>
@@ -229,7 +229,7 @@
 <% unless @desserts.empty? %>
   <div style='padding: 16px 0 0 0'><a name="Desserts"><h3 style="font-size: 20px; font-weight: bold; padding-left: 14px">Desserts</h3></a></div>
 <% end %>
-<% @desserts.each do |dish| %>
+<% @desserts.sort_by! { |obj| obj.price }.each do |dish| %>
     <div class="card-dish" id="dish_id_<%= dish.id %>" style='margin-top: 16px'>
     <% if dish.photo.attached? %>
       <%= cl_image_tag dish.photo.key, height: 300, width: 400, crop: :fill %>
@@ -253,7 +253,7 @@
 <% unless @beverages.empty? %>
   <div style='padding: 16px 0 0 0'><a name="Beverages"><h3 style="font-size: 20px; font-weight: bold; padding-left: 14px">Beverages</h3></a></div>
 <% end %>
-<% @beverages.each do |dish| %>
+<% @beverages.sort_by! { |obj| obj.price }.each do |dish| %>
     <div class="card-dish" id="dish_id_<%= dish.id %>" style='margin-top: 16px'>
     <% if dish.photo.attached? %>
       <%= cl_image_tag dish.photo.key, height: 300, width: 400, crop: :fill %>
@@ -274,7 +274,7 @@
   </div>
 <% end %>
 
-<% unless @beers.empty? %>
+<% unless @beers.sort_by! { |obj| obj.price }.empty? %>
   <div style='padding: 16px 0 0 0'><a name="Beers"><h3 style="font-size: 20px; font-weight: bold; padding-left: 14px">Beers</h3></a></div>
 <% end %>
 <% @beers.each do |dish| %>
@@ -301,7 +301,7 @@
 <% unless @alc_bevs.empty? %>
   <div style='padding: 16px 0 0 0'><a name="AlcoholicBeverages"><h3 style="font-size: 20px; font-weight: bold; padding-left: 14px">Alcoholic Beverages</h3></a></div>
 <% end %>
-<% @alc_bevs.each do |dish| %>
+<% @alc_bevs.sort_by! { |obj| obj.price }.each do |dish| %>
     <div class="card-dish" id="dish_id_<%= dish.id %>" style='margin-top: 16px'>
     <% if dish.photo.attached? %>
       <%= cl_image_tag dish.photo.key, height: 300, width: 400, crop: :fill %>
@@ -325,7 +325,7 @@
 <% unless @hot_bevs.empty? %>
   <div style='padding: 16px 0 0 0'><a name="HotBeverages"><h3 style="font-size: 20px; font-weight: bold; padding-left: 14px">Hot Beverages</h3></a></div>
 <% end %>
-<% @hot_bevs.each do |dish| %>
+<% @hot_bevs.sort_by! { |obj| obj.price }.each do |dish| %>
     <div class="card-dish" id="dish_id_<%= dish.id %>" style='margin-top: 16px'>
     <% if dish.photo.attached? %>
       <%= cl_image_tag dish.photo.key, height: 300, width: 400, crop: :fill %>

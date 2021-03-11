@@ -5,7 +5,7 @@ class Dish < ApplicationRecord
 
   CATEGORIES = ['Starters', 'Main Dishes', 'Desserts', 'Soups', 'Salads', 'Fish', 'Meat', 'Pasta', 'Vegetarian', 'Vegan', 'Beverages', 'Hot Beverages', 'Alcoholic Beverages', 'Beers']
 
-  validates :name, presence: true, uniqueness: true
+  validates :name, presence: true
   validates :category, inclusion: { in: CATEGORIES, allow_nil: false }
   # validates :description, presence: true
 
