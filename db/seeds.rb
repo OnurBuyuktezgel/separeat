@@ -247,7 +247,7 @@ thirtytwo_dish = Dish.new(name: 'Vanilla Pudding', todays_special: false, descri
 thirtytwo_dish.photo.attach(io: URI.open('https://res.cloudinary.com/dinjscr9h/image/upload/v1614162811/separeat/dessert_2.jpg'), filename: 'desserts image', content_type: 'image/jpg')
 thirtytwo_dish.save!
 
-thirtythree_dish = Dish.new(name: 'Brownies', todays_special: false, description: "so chocolaty! enough for all", category: "Desserts", price: 35.00, restaurant: @fifth_restaurant)
+thirtythree_dish = Dish.new(name: 'Brownies', todays_special: false, description: "30 most chocolaty brownies", category: "Desserts", price: 35.00, restaurant: @fifth_restaurant)
 thirtythree_dish.photo.attach(io: URI.open('https://res.cloudinary.com/dinjscr9h/image/upload/v1615458369/separeat/brownies_wdksnx.jpg'), filename: 'desserts image', content_type: 'image/jpg')
 thirtythree_dish.save!
 
@@ -299,10 +299,10 @@ puts "#{Dish.count}/44 dishes were created."
 # 5. VISITS
 
 puts "Creating visits..."
-visit_one = Visit.create!(start_date: "2021-03-10 18:00:00 CET", end_date: "2021-02-22 21:00:00 CET", guests: 5, user: @third_user, table: @table_fifteen )
-visit_two = Visit.create!(start_date: "2021-03-05 16:00:00 CET", end_date: "2021-01-22 17:30:00 CET", guests: 2, user: @third_user, table: @table_nine )
-visit_three = Visit.create!(start_date: "2021-03-06 19:00:00 CET", end_date: "2021-03-02 21:00:00 CET", guests: 5, user: @third_user, table: @table_one )
-visit_four = Visit.create!(start_date: "2021-03-07 18:15:00 CET", end_date: "2021-01-06 20:30:00 CET", guests: 4, user: @third_user, table: @table_four)
+visit_one = Visit.create!(start_date: "2021-03-10 18:00:00 CET", end_date: "2021-02-22 21:00:00 CET", guests: 5, user: @third_user, table: @table_twelve)
+visit_two = Visit.create!(start_date: "2021-03-05 16:00:00 CET", end_date: "2021-01-22 17:30:00 CET", guests: 2, user: @third_user, table: @table_nine)
+visit_three = Visit.create!(start_date: "2021-03-06 19:00:00 CET", end_date: "2021-03-02 21:00:00 CET", guests: 5, user: @third_user, table: @table_three)
+visit_four = Visit.create!(start_date: "2021-03-07 18:15:00 CET", end_date: "2021-01-06 20:30:00 CET", guests: 4, user: @third_user, table: @table_six)
 puts "#{Visit.count}/4 visits were created."
 
 # 6. REVIEWS
