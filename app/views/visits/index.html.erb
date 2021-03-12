@@ -1,5 +1,4 @@
-
-<h1 class="order-header">Your Visits</h1>
+<h1 class="order-header" style="padding-top: 26px">Your Visits</h1>
 
 <div class="container" style='margin-top: 16px'>
 
@@ -15,15 +14,10 @@
         <h2><%= visit.table.restaurant.name %><small> (<%= visit.table.restaurant.address %>) </small></h2>
         <h2><small> Visited on: <%= visit.start_date.strftime("%b %d %Y, %l:%M%P") %> - <%= visit.end_date.strftime(" %l:%M%P") %></small></h2>
         <div class="info" style='color: green'>
-          <h2><small> No incidents reported. </small></h2>
+          <h2><small><b>No incidents reported.</b></small></h2>
         </div>
       </div>
     </div>
   <% end %>
 <% end %>
 </div>
-
-
-
-
-
