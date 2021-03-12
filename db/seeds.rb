@@ -46,6 +46,7 @@ fifth_user = URI.open('https://kitt.lewagon.com/placeholder/users/andrerferrer')
 @fifth_user.photo.attach(io: fifth_user, filename: 'fifth_user image', content_type: 'image/jpg')
 
 @lucie = User.create!(email: "lucie@separeat.com", password: "12345678", first_name: "Lucie", last_name: "B", address: "Berlin", phone: "123 456 789", user_type: 'Restaurant Owner')
+@vlad = User.create!(email: "vlad@separeat.com", password: "12345678", first_name: "Vlad", last_name: "P", address: "Berlin", phone: "123 456 789", user_type: 'Restaurant Owner')
 
 @user_six = User.create!(email: "peter@user.com", password: "12345678", first_name: "Peter", last_name: "H", address: "Madrid", phone: "123 456 789", user_type: 'Customer')
 @user_seven = User.create!(email: "karl@user.com", password: "12345678", first_name: "Karl", last_name: "K", address: "Munich", phone: "123 456 789", user_type: 'Customer')
@@ -54,7 +55,7 @@ fifth_user = URI.open('https://kitt.lewagon.com/placeholder/users/andrerferrer')
 @user_ten = User.create!(email: "karlotta@user.com", password: "12345678", first_name: "Karlotta", last_name: "K", address: "Munich", phone: "123 456 789", user_type: 'Customer')
 @user_eleven = User.create!(email: "yannik@user.com", password: "12345678", first_name: "Yannik", last_name: "G", address: "Munich", phone: "123 456 789", user_type: 'Customer')
 @user_twelve = User.create!(email: "mark@user.com", password: "12345678", first_name: "Mark", last_name: "M", address: "Berlin", phone: "123 456 789", user_type: 'Customer')
-puts "#{User.count}/13 users were created."
+puts "#{User.count}/14 users were created."
 
 # 2. RESTAURANTS
 
@@ -83,7 +84,12 @@ fourth_restaurant = URI.open('https://res.cloudinary.com/dinjscr9h/image/upload/
 fifth_restaurant = URI.open('https://res.cloudinary.com/dinjscr9h/image/upload/v1613224930/burger_xlpnxs.jpg')
 @fifth_restaurant.photo.attach(io: fifth_restaurant, filename: 'fifth_restaurant image', content_type: 'image/jpg')
 @fifth_restaurant.save!
-puts "#{Restaurant.count}/5 restaurants were created."
+
+@sixth_restaurant = Restaurant.new(name: "Vlad's Bakery", address: "Berlin", email: "vlad@separeat.com", phone: "0049 0125 0125", category: "Café", user: @vlad)
+sixth_restaurant = URI.open('https://res.cloudinary.com/dinjscr9h/image/upload/v1615541960/separeat/vlads-bakery_pthnv5.jpg')
+@sixth_restaurant.photo.attach(io: sixth_restaurant, filename: 'sixth_restaurant image', content_type: 'image/jpg')
+@sixth_restaurant.save!
+puts "#{Restaurant.count}/6 restaurants were created."
 
 # 3. TABLES
 
@@ -103,7 +109,8 @@ puts "Creating tables..."
 @table_thirteen = Table.create!(name: "Table 1", capacity: 4, restaurant: @fifth_restaurant)
 @table_fourteen = Table.create!(name: "Table 2", capacity: 2, restaurant: @fifth_restaurant)
 @table_fifteen = Table.create!(name: "Table 3", capacity: 6, restaurant: @fifth_restaurant)
-puts "#{Table.count}/15 tables were created."
+@table_sixteen = Table.create!(name: "Table 1", capacity: 4, restaurant: @sixth_restaurant)
+puts "#{Table.count}/16 tables were created."
 
 # 4. DISHES
 
@@ -119,6 +126,18 @@ puts "#{Table.count}/15 tables were created."
 # meat = URI.open('https://res.cloudinary.com/dinjscr9h/image/upload/v1613232732/meat_uhujya.jpg')
 
 puts "Creating dishes..."
+dish_one = Dish.new(name: "Black Coffee", todays_special: false, description: "very aromatic", category: "Hot Beverages", price: 2.50, restaurant: @sixth_restaurant)
+dish_one.photo.attach(io: URI.open('https://res.cloudinary.com/dinjscr9h/image/upload/v1613232517/capuccino_knecpy.jpg'), filename: 'hot_bevs image', content_type: 'image/jpg')
+dish_one.save!
+
+dish_two = Dish.new(name: "Milk Coffee", todays_special: false, description: "very aromatic", category: "Hot Beverages", price: 3.00, restaurant: @sixth_restaurant)
+dish_two.photo.attach(io: URI.open('https://res.cloudinary.com/dinjscr9h/image/upload/v1613232517/capuccino_knecpy.jpg'), filename: 'hot_bevs image', content_type: 'image/jpg')
+dish_two.save!
+
+dish_three = Dish.new(name: 'Brownie', todays_special: false, description: "the most chocolaty", category: "Desserts", price: 3.50, restaurant: @sixth_restaurant)
+dish_three.photo.attach(io: URI.open('https://res.cloudinary.com/dinjscr9h/image/upload/v1615458369/separeat/brownies_wdksnx.jpg'), filename: 'desserts image', content_type: 'image/jpg')
+dish_three.save!
+
 first_dish = Dish.new(name: "Single Malt", todays_special: false, description: "full & fruity aroma", category: "Alcoholic Beverages", price: [5.50, 7.50, 9.20].sample, restaurant: @first_restaurant)
 first_dish.photo.attach(io: URI.open('https://res.cloudinary.com/dinjscr9h/image/upload/v1613227908/whisky5_cgpgoa.jpg'), filename: 'drinks image', content_type: 'image/jpg')
 first_dish.save!
@@ -247,7 +266,7 @@ thirtytwo_dish = Dish.new(name: 'Vanilla Pudding', todays_special: false, descri
 thirtytwo_dish.photo.attach(io: URI.open('https://res.cloudinary.com/dinjscr9h/image/upload/v1614162811/separeat/dessert_2.jpg'), filename: 'desserts image', content_type: 'image/jpg')
 thirtytwo_dish.save!
 
-thirtythree_dish = Dish.new(name: 'Brownies', todays_special: false, description: "30 most chocolaty brownies", category: "Desserts", price: 35.00, restaurant: @fifth_restaurant)
+thirtythree_dish = Dish.new(name: 'Brownie', todays_special: false, description: "the most chocolaty", category: "Desserts", price: 3.50, restaurant: @fifth_restaurant)
 thirtythree_dish.photo.attach(io: URI.open('https://res.cloudinary.com/dinjscr9h/image/upload/v1615458369/separeat/brownies_wdksnx.jpg'), filename: 'desserts image', content_type: 'image/jpg')
 thirtythree_dish.save!
 
@@ -294,27 +313,28 @@ fourtythree_dish.save!
 fourtyfour_dish = Dish.new(name: 'Vegan Platter', todays_special: false, description: '15 extra tasty vegan burgers', category: "Vegan", price: 75.00, restaurant: @fifth_restaurant)
 fourtyfour_dish.photo.attach(io: URI.open('https://res.cloudinary.com/dinjscr9h/image/upload/v1615457638/separeat/burger-platter-3_nt0x6f.jpg'), filename: 'bevs image', content_type: 'image/jpg')
 fourtyfour_dish.save!
-puts "#{Dish.count}/44 dishes were created."
+puts "#{Dish.count}/47 dishes were created."
 
 # 5. VISITS
 
 puts "Creating visits..."
-visit_one = Visit.create!(start_date: "2021-03-10 18:00:00 CET", end_date: "2021-02-22 21:00:00 CET", guests: 5, user: @third_user, table: @table_twelve)
-visit_two = Visit.create!(start_date: "2021-03-05 16:00:00 CET", end_date: "2021-01-22 17:30:00 CET", guests: 2, user: @third_user, table: @table_nine)
-visit_three = Visit.create!(start_date: "2021-03-06 19:00:00 CET", end_date: "2021-03-02 21:00:00 CET", guests: 5, user: @third_user, table: @table_three)
-visit_four = Visit.create!(start_date: "2021-03-07 18:15:00 CET", end_date: "2021-01-06 20:30:00 CET", guests: 4, user: @third_user, table: @table_six)
-puts "#{Visit.count}/4 visits were created."
+visit_one = Visit.create!(start_date: "2021-03-11 18:00:00 CET", end_date: "2021-03-11 21:00:00 CET", guests: 5, user: @third_user, table: @table_twelve)
+visit_two = Visit.create!(start_date: "2021-03-09 16:15:00 CET", end_date: "2021-03-09 18:05:00 CET", guests: 2, user: @third_user, table: @table_nine)
+visit_three = Visit.create!(start_date: "2021-03-06 20:00:00 CET", end_date: "2021-03-06 22:30:00 CET", guests: 5, user: @third_user, table: @table_three)
+visit_four = Visit.create!(start_date: "2021-03-05 18:15:00 CET", end_date: "2021-03-05 20:30:00 CET", guests: 4, user: @third_user, table: @table_six)
+visit_five = Visit.create!(start_date: "2021-03-07 16:00:00 CET", end_date: "2021-03-07 17:30:00 CET", guests: 4, user: @third_user, table: @table_sixteen)
+puts "#{Visit.count}/5 visits were created."
 
 # 6. REVIEWS
 
 puts "Creating reviews..."
 @users = [@user_six, @user_seven, @user_eight, @user_nine, @user_ten, @user_eleven, @user_twelve]
-@messages = ["Great Place!", "So good!", "Best food in town!", "Best drinks in town! 🍻", "Really nice place and lovely restaurant owner 💛", "Love this place, highly recommend 👍", "Awesome food – try their burgers! 🤤🍔", "Cool place, but a lot of coders around 🤓🤔"]
+@messages = ["Great Place!", "Best food in town!", "So good!", "Best drinks in town! 🍻", "Really nice place and lovely restaurant owner 💛", "Love this place, highly recommend 👍", "Awesome food – try their burgers! 🤤🍔", "Cool place, but a lot of coders around 🤓🤔"]
 3.times {Review.create!(user: @users.sample, restaurant: @first_restaurant, content: @messages.sample, rating: 5)}
 3.times {Review.create!(user: @users.sample, restaurant: @second_restaurant, content: @messages.sample, rating: 5)}
 3.times {Review.create!(user: @users.sample, restaurant: @third_restaurant, content: @messages.sample, rating: 5)}
 3.times {Review.create!(user: @users.sample, restaurant: @fourth_restaurant, content: @messages.sample, rating: 5)}
 @messages.each do |message|
-  Review.create!(user: @users.sample, restaurant: @fifth_restaurant, content: message, rating: 5)
+  Review.create!(user: @users.sample, restaurant: @fifth_restaurant, content: message, rating: [4, 5].sample)
 end
 puts "#{Review.count}/20 reviews were created."
