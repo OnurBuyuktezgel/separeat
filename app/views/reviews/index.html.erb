@@ -13,11 +13,11 @@
   <% unless @restaurant.user == current_user %>
     <%= simple_form_for [ @restaurant, @review ],method: :POST, remote: true  do |f| %>
   <div>
-    <%= f.input :content, as: :text, label: 'How was your Meal?',error: 'Minimum 5 characters' %>
+    <%= f.input :content, as: :text, label: 'How was your meal?',error: 'Minimum 5 characters' %>
   </div>
   <div style="display: flex; flex-direction: column; align-items: center">
     <div>
-      <fieldset class="rating">
+      <fieldset class="rating" style="font-size: 28px">
         <%=f.radio_button :rating, 5, :id => "star5" %><label  for="star5" >5 Stars</label>
         <%=f.radio_button :rating, 4, :id => "star4" %> <label for="star4" >4 Stars</label>
         <%=f.radio_button :rating, 3, :id => "star3" %> <label for="star3" >3 Stars</label>
@@ -26,7 +26,7 @@
       </fieldset>
     </div>
     <div>
-      <div class="align-button">  <%= f.button :submit, 'Leave a Review', class: 'btn btn-flat' %></div>
+      <div class="align-button">  <%= f.button :submit, 'Leave a review', class: 'btn btn-flat' %></div>
     </div>
   </div>
   <% end %>

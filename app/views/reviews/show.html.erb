@@ -12,11 +12,11 @@
  <div  class="orders-list" style="margin-top: 32px">
   <% unless @restaurant.user == current_user %>
   <%= simple_form_for [ @restaurant, @review ],method: :POST, remote: true  do |f| %>
-    <%= f.input :content, as: :text, label: 'How was your Meal?',error: 'Minimum 5 characters' %>
+    <%= f.input :content, as: :text, label: 'How was your meal?',error: 'Minimum 5 characters' %>
     <%#= f.input :rating, as: :integer, label: 'Rate us between 1-5?' %>
     <%= f.input :rating, collection: 1..5, as: :radio_buttons, label: 'Rate us between 1-5?'%>
 
-  <div class="align-button">  <%= f.button :submit, 'Leave a Review', class: 'btn btn-flat' %></div>
+  <div class="align-button">  <%= f.button :submit, 'Leave a review', class: 'btn btn-flat' %></div>
   <% end %>
   <% end %>
 </div>
