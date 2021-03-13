@@ -15,7 +15,7 @@ class RestaurantsController < ApplicationController
   end
 
   def show
-    @dishes = @restaurant.dishes.order(category: :desc)
+    @dishes = @restaurant.dishes.order(id: :asc)
     @dish = Dish.new
     @visit = Visit.last
 
