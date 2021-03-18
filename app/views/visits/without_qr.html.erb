@@ -1,0 +1,7 @@
+<%= simple_form_for @visit, url: create_visit_path, method: :post do |f| %>
+  <%= f.input :start_date, as: :hidden, input_html: { value: Time.now } %>
+  <%= f.input :user_id, as: :hidden, input_html: { value: current_user.id } %>
+  <%= f.input :table_id, collection: Table.all, required: true, label: 'Table no' %>
+  <%= f.input :guests, label: 'Number of guests' %>
+  <%= f.button :submit, 'Check-in', class: 'btn-flat' %>
+<% end %>
