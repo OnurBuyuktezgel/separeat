@@ -48,6 +48,26 @@ class VisitsController < ApplicationController
     redirect_to root_path
   end
 
+  def without_qr
+    @visit = Visit.new
+    authorize @visit
+  end
+
+  def create_without_qr
+    @visit = Visit.new(visit_params)
+    authorize @visit
+    @visit.user = current_user
+    @restaurant_id = Restaurant.find(visit_params[:table_id])
+    @visit.table_id = (@restaurant_id.tables.sample).id
+
+    if @visit.save!
+      flash[:notice] = 'Successfully checked in'
+      redirect_to restaurant_path(@restaurant_id)
+    else
+      render :new
+    end
+  end
+
   private
 
   def set_visit

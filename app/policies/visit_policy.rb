@@ -27,6 +27,14 @@ class VisitPolicy < ApplicationPolicy
     user_is_owner_or_admin?
   end
 
+  def without_qr?
+    true
+  end
+
+  def create_without_qr?
+    true
+  end
+
   private
 
   def user_is_owner_or_admin?
