@@ -9,7 +9,10 @@
             <%= link_to "Scan QR code", new_visit_path, class: "btn btn-flat btn-navbar" %>
         </li>
         <li class="nav-item">
-          <%= link_to "Find restaurants", restaurants_path, class: "btn btn-flat-secondary btn-navbar" %>
+          <%= link_to "Choose your table manually", without_qr_code_path, class: "btn btn-flat-secondary btn-navbar" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Browse all restaurants", restaurants_path, class: "btn btn-flat-secondary btn-navbar" %>
         </li>
         <li class="nav-item">
           <%= link_to "QR code for demo purposes", "/tables/180/qr_code", class: "btn btn-outline-secondary btn-navbar" %>

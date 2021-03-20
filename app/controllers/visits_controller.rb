@@ -57,11 +57,12 @@ class VisitsController < ApplicationController
     @visit = Visit.new(visit_params)
     authorize @visit
     @visit.user = current_user
-    @visit.table_id = visit_params[:table_id]
-    @restaurant = @visit.table.restaurant
+    @restaurant_id = Restaurant.find(visit_params[:table_id])
+    @visit.table_id = (@restaurant_id.tables.sample).id
+
     if @visit.save!
       flash[:notice] = 'Successfully checked in'
-      redirect_to restaurant_path(@restaurant)
+      redirect_to restaurant_path(@restaurant_id)
     else
       render :new
     end
