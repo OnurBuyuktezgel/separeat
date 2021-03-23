@@ -54,7 +54,7 @@
   color: $almost-black;
   background: transparent;
   border-color: #FFDD77;
-  padding: 8px 16px;
+  margin-bottom: 80px;
   border-radius: 15px;
   transition: background 0.3s ease;
   font-size: 14px;
@@ -70,7 +70,7 @@
 
 .btn-navbar {
   width: 60vw !important;
-  padding: 30px;
+  padding: 18px;
   margin-top: 30px !important;
   border: 2px solid $dark-yellow;
 }
@@ -78,7 +78,7 @@
 .btn-navbar:hover {
   background-color: white;
   width: 60vw !important;
-  padding: 30px;
+  padding: 18px;
   margin-top: 30px !important;
   border: 3px solid $dark-yellow;
   color: $almost-black;
