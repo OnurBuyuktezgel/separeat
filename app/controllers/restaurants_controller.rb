@@ -18,44 +18,13 @@ class RestaurantsController < ApplicationController
     @dishes = @restaurant.dishes.order(id: :asc)
     @dish = Dish.new
     @visit = Visit.last
-
     if params[:query].present?
       @dishes = @dishes.search_by_name_and_category(params[:query])
     else
       @dishes = @dishes.all
     end
-
-    @starters = []
-    @dishes.each {|dish| @starters << dish if dish.category == "Starters"}
-    @soups = []
-    @dishes.each {|dish| @soups << dish if dish.category == "Soups"}
-    @salads = []
-    @dishes.each {|dish| @salads << dish if dish.category == "Salads"}
-    @main_dishes = []
-    @dishes.each {|dish| @main_dishes << dish if dish.category == "Main Dishes"}
-    @meats = []
-    @dishes.each {|dish| @meats << dish if dish.category == "Meat"}
-    @fishes = []
-    @dishes.each {|dish| @fishes << dish if dish.category == "Fish"}
-    @pastas = []
-    @dishes.each {|dish| @pastas << dish if dish.category == "Pasta"}
-    @veggies = []
-    @dishes.each {|dish| @veggies << dish if dish.category == "Vegetarian"}
-    @vegans = []
-    @dishes.each {|dish| @vegans << dish if dish.category == "Vegan"}
-    @desserts = []
-    @dishes.each {|dish| @desserts << dish if dish.category == "Desserts"}
-    @beverages = []
-    @dishes.each {|dish| @beverages << dish if dish.category == "Beverages"}
-    @beers = []
-    @dishes.each {|dish| @beers << dish if dish.category == "Beers"}
-    @alc_bevs = []
-    @dishes.each {|dish| @alc_bevs << dish if dish.category == "Alcoholic Beverages"}
-    @hot_bevs = []
-    @dishes.each {|dish| @hot_bevs << dish if dish.category == "Hot Beverages"}
-
+    @menu_order = ['Starters', 'Soups', 'Salads', 'Main Dishes', 'Meat', 'Fish', 'Pasta', 'Vegetarian', 'Vegan', 'Desserts', 'Beverages', 'Beers', 'Alcoholic Beverages', 'Hot Beverages']
     @dish_categories = @dishes.map(&:category).uniq
-
     @average_price = average_price
   end
 
