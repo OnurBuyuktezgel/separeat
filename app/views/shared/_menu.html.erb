@@ -1,0 +1,10 @@
+<% @dish_categories.sort_by {|cat| @menu_order.index(cat)}.each do |category| %>
+  <% unless category.empty? %>
+    <div style='padding: 16px 0 0 0'>
+      <a name="Starters" class= "anchor"><h3 name="Starters" style="font-size: 20px; font-weight: bold; padding-left: 14px"><%= "#{category}" %></h3></a>
+    </div>
+  <% end %>
+  <% @dishes.where(category: category).to_a.sort_by! { |obj| obj.price }.each do |dish| %>
+    <%= render 'shared/dishcard', dish: dish %>
+  <% end %>
+<% end %>
